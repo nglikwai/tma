@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
     content: [
-        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/app/*{js,ts,jsx,tsx,mdx}",
         "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}"
     ],
@@ -20,7 +20,7 @@ const config: Config = {
     },
     plugins: [],
     corePlugins: {
-        preflight: false // <== disable this!
+        preflight: true // <== disable this!
     },
     safelist: ["bg-[#877750]", "bg-[#FAF9F5]", "bg-[#403826]", "bg-[#F0ECE3]", "text-[#646261]"]
 };

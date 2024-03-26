@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { StoreProvider } from "./StoreProvider";
 
+import Layout from "@/components/Global/Layout";
 import "./styles/globals.css";
-import styles from "./styles/layout.module.css";
 
 interface Props {
     readonly children: ReactNode;
@@ -13,7 +13,7 @@ export default function RootLayout({ children }: Props) {
         <StoreProvider>
             <html lang="en">
                 <body>
-                    <main className={styles.main}>{children}</main>
+                    <Layout>{children}</Layout>
                 </body>
             </html>
         </StoreProvider>
