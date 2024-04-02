@@ -78,5 +78,5 @@ export default function DisclaimerPage() {
 }
 
 export const metadata: Metadata = {
-    title: "TMA"
+    title: "Education Benchmark Statement - TMA"
 };

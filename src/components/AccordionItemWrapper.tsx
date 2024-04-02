@@ -4,8 +4,10 @@ import { FC } from "react";
 import CrossIcon from "./icon/CrossIcon";
 type props = {
     children: React.ReactNode;
+    title: string;
 };
-const AccordionItemWrapper: FC<props> = ({ children }) => {
+const AccordionItemWrapper: FC<props> = ({ children, title }) => {
+    console.log("title", title);
     return (
         <AccordionItem>
             {({ isExpanded }) => (
@@ -18,12 +20,8 @@ const AccordionItemWrapper: FC<props> = ({ children }) => {
                             <AccordionButton className="hover:!bg-transparent">
                                 <div className="mr-4">
                                     <CrossIcon isExpanded={isExpanded} />
-                                    {/* <img
-                                        src="/images/icon-cross.svg"
-                                        style={{ transform: isExpanded ? "rotate(405deg)" : "rotate(90deg)", transition: "0.6s" }}
-                                    ></img> */}
                                 </div>
-                                Hong Kong Dollar
+                                {title}
                             </AccordionButton>
                         </h2>
                     </div>

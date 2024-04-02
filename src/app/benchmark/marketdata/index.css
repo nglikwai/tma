@@ -1,0 +1,29 @@
+.market-table {
+    width: 100%;
+}
+
+.market-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.market-table td {
+    padding: 16px 0;
+    width: 50%;
+    text-align: center;
+}
+
+.market-table tbody {
+    @apply divide-y divide-[#EEE];
+}
+
+.market-table th {
+    font-weight: normal;
+    padding: 8px 0;
+    background-color: #eeeeee;
+}
+.market-table-title {
+    padding: 16px 0;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-weight: 700;
+}

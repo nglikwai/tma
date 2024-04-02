@@ -1,0 +1,33 @@
+.governance-table tbody tr td {
+    @apply text-center p-2;
+    width: 28%;
+}
+.governance-table thead th {
+    border-right: 1px solid #ffffff;
+}
+
+.governance-table tbody tr td a {
+    @apply text-[#0053B0];
+}
+.governance-table tbody tr td:first-child {
+    width: 150px;
+}
+
+.governance-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.governance-table tbody {
+    @apply divide-y divide-[#EEE];
+}
+
+.governance-table th {
+    font-weight: normal;
+    padding: 8px 0;
+    background-color: #f0f2f5;
+}
+
+.governance-table tbody tr td {
+    border-bottom: 1px solid #f0f2f5;
+}

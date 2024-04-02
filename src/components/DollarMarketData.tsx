@@ -1,18 +1,22 @@
 import { AccordionPanel } from "@chakra-ui/react";
 import Link from "next/link";
+import { FC } from "react";
 import AccordionItemWrapper from "./AccordionItemWrapper";
-
-const DollarMarketData = () => {
+import "@/app/benchmark/marketdata/index.css";
+type props = {
+    title: string;
+};
+const DollarMarketData: FC<props> = ({ title }) => {
     return (
-        <AccordionItemWrapper>
+        <AccordionItemWrapper title={title}>
             <AccordionPanel className="!p-4">
                 <div className="grid grid-cols-2 gap-6 sm:grid-cols-1">
                     {["USD/HKD Spot Rate", "HKD Overnight Index Average (HONIA)"].map((item, index) => (
                         <div key={item}>
-                            <div className="w-full bg-[#F8F8F8] px-4 market-table">
+                            <div className="bg-[#F8F8F8] px-4 market-table">
                                 <h1 className="market-table-title">HKD Interest Settlement Rates</h1>
 
-                                <table className="w-full">
+                                <table>
                                     <tbody>
                                         <tr>
                                             <td className="!text-start">12/3/2024</td>

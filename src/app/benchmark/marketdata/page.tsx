@@ -11,8 +11,8 @@ const MarketDataPage: NextPage = async () => {
                     US new home construction surged last month, as mortgage rates stayed high
                 </div> */}
             <Accordion allowToggle defaultIndex={0}>
-                {[1, 2].map(item => (
-                    <DollarMarketData key={item} />
+                {["Hong Kong Dollar", "Renminbi"].map(item => (
+                    <DollarMarketData key={item} title={item} />
                 ))}
             </Accordion>
         </BenchMarkLayout>
