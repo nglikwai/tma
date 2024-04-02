@@ -8,8 +8,12 @@ body {
     padding: 0;
     margin: 0;
     font-family: system-ui, sans-serif;
+    color: #212121;
 }
 
+header {
+    color: #212121;
+}
 a {
     color: inherit;
     text-decoration: none;
@@ -20,9 +24,31 @@ a {
 }
 
 .max-container {
-    @apply max-w-[1272px] w-full;
+    @apply max-w-[1272px] w-full xl:px-2;
 }
 
 .max-center {
     @apply flex flex-col items-center;
+}
+
+.market-table td {
+    padding: 16px 0;
+    width: 50%;
+    text-align: center;
+}
+
+.market-table tbody {
+    @apply divide-y divide-[#EEE];
+}
+
+.market-table th {
+    font-weight: normal;
+    padding: 8px 0;
+    background-color: #eeeeee;
+}
+.market-table-title {
+    padding: 16px 0;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-weight: 700;
 }

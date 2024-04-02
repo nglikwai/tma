@@ -15,6 +15,12 @@ const config: Config = {
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
                 "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))"
+            },
+            screens: {
+                xl: { max: "1272px" },
+                lg: { max: "1023px" },
+                md: { max: "767px" },
+                sm: { max: "639px" }
             }
         }
     },
@@ -22,6 +28,6 @@ const config: Config = {
     corePlugins: {
         preflight: true // <== disable this!
     },
-    safelist: ["bg-[#877750]", "bg-[#FAF9F5]", "bg-[#403826]", "bg-[#F0ECE3]", "text-[#646261]"]
+    safelist: ["bg-[#877750]"]
 };
 export default config;

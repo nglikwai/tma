@@ -25,7 +25,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#1A2F46] h-[40px] max-center justify-center">
+            <div className="bg-[#1A2F46] py-2 max-center justify-center">
                 <div className="max-container">
                     <span className="text-[14px]">
                         Copyright © 2024 Treasury Markets Association, a company incorporated with limited liability. All rights

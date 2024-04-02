@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { StoreProvider } from "./StoreProvider";
 
-import Layout from "@/components/Global/Layout";
+import { ChakraProvider } from "@chakra-ui/react";
 import "./styles/globals.css";
 
 interface Props {
@@ -10,12 +10,12 @@ interface Props {
 
 export default function RootLayout({ children }: Props) {
     return (
-        <StoreProvider>
-            <html lang="en">
-                <body>
-                    <Layout>{children}</Layout>
-                </body>
-            </html>
-        </StoreProvider>
+        <html lang="en">
+            <body>
+                <StoreProvider>
+                    <ChakraProvider>{children}</ChakraProvider>
+                </StoreProvider>
+            </body>
+        </html>
     );
 }
