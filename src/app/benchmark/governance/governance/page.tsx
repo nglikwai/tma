@@ -9,6 +9,8 @@ export type GovernanceComponentType = {
     title?: string;
     href?: string;
     content?: any[];
+    header?: string;
+    maxCol?: number;
 };
 
 export type GovernanceData = {
@@ -40,19 +42,40 @@ const data: GovernanceData[] = [
             {
                 type: "table",
                 title: "Meeting Minutes",
+                maxCol: 3,
+                header: "Minutes",
                 content: [
-                    {
-                        date: "2021-01-01",
-                        link: "https://www.google.com"
-                    },
-                    {
-                        date: "2021-02-01",
-                        link: "https://www.google.com"
-                    },
-                    {
-                        date: "2021-03-01",
-                        link: "https://www.google.com"
-                    }
+                    [
+                        2023,
+                        [
+                            { title: "March", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "July", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" }
+                        ]
+                    ],
+                    [
+                        2022,
+                        [
+                            { title: "March", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "July", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "November", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" }
+                        ]
+                    ],
+                    [
+                        2021,
+                        [
+                            { title: "March", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "November", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "November", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" }
+                        ]
+                    ],
+                    [
+                        2020,
+                        [
+                            { title: "March", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "November", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "November", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" }
+                        ]
+                    ]
                 ]
             }
         ]
@@ -162,7 +185,47 @@ const data: GovernanceData[] = [
         components: [
             {
                 type: "table",
-                content: []
+                maxCol: 4,
+                header: "Quarter",
+                content: [
+                    [2024, [{ title: "1st", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" }]],
+                    [
+                        2023,
+                        [
+                            { title: "1st", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "2nd", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "3rd", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "4th", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" }
+                        ]
+                    ],
+                    [
+                        2022,
+                        [
+                            { title: "1st", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "2nd", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "3rd", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "4th", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" }
+                        ]
+                    ],
+                    [
+                        2021,
+                        [
+                            { title: "1st", href: "" },
+                            { title: "2nd", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "3rd", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "4th", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" }
+                        ]
+                    ],
+                    [
+                        2020,
+                        [
+                            { title: "1st", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "2nd", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "3rd", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" },
+                            { title: "4th", href: "https://www.tma.org.hk/FixingsFile/SGC_Minutes_2023_March.pdf?361" }
+                        ]
+                    ]
+                ]
             }
         ]
     }

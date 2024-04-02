@@ -7,7 +7,6 @@ type props = {
     title: string;
 };
 const AccordionItemWrapper: FC<props> = ({ children, title }) => {
-    console.log("title", title);
     return (
         <AccordionItem>
             {({ isExpanded }) => (
@@ -16,14 +15,14 @@ const AccordionItemWrapper: FC<props> = ({ children, title }) => {
                         className="bg-[#0053B0] h-[59px] px-4 font-[700] flex items-center text-white"
                         style={{ color: isExpanded ? "#fff" : "#212121", background: isExpanded ? "#0053B0" : "transparent" }}
                     >
-                        <h2 className="text-[18px]">
+                        <div className="w-full">
                             <AccordionButton className="hover:!bg-transparent">
-                                <div className="mr-4">
+                                <div className="flex items-center gap-4">
                                     <CrossIcon isExpanded={isExpanded} />
+                                    <h3 className="text-[18px]">{title}</h3>
                                 </div>
-                                {title}
                             </AccordionButton>
-                        </h2>
+                        </div>
                     </div>
                     {children}
                 </>

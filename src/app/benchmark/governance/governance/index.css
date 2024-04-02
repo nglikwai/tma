@@ -1,6 +1,11 @@
+.governance-table table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
 .governance-table tbody tr td {
     @apply text-center p-2;
-    width: 28%;
 }
 .governance-table thead th {
     border-right: 1px solid #ffffff;
@@ -11,11 +16,6 @@
 }
 .governance-table tbody tr td:first-child {
     width: 150px;
-}
-
-.governance-table table {
-    width: 100%;
-    border-collapse: collapse;
 }
 
 .governance-table tbody {

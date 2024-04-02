@@ -8,7 +8,7 @@ export default function DisclaimerPage() {
             content={<p>Last revised: 9 December 2016</p>}
         >
             <div className="grid gap-6 justify-items-start">
-                <h1 className="text-[30px] font-[700]">Description</h1>
+                <h2>Description</h2>
 
                 <article>
                     <p>

@@ -14,7 +14,7 @@ const DollarMarketData: FC<props> = ({ title }) => {
                     {["USD/HKD Spot Rate", "HKD Overnight Index Average (HONIA)"].map((item, index) => (
                         <div key={item}>
                             <div className="bg-[#F8F8F8] px-4 market-table">
-                                <h1 className="market-table-title">HKD Interest Settlement Rates</h1>
+                                <h3 className="market-table-title">HKD Interest Settlement Rates</h3>
 
                                 <table>
                                     <tbody>
@@ -35,7 +35,7 @@ const DollarMarketData: FC<props> = ({ title }) => {
                     {[1, 2].map(item => (
                         <div key={item}>
                             <div className="w-full bg-[#F8F8F8] px-4 market-table">
-                                <h1 className="market-table-title">HKD Interest Settlement Rates</h1>
+                                <h3 className="market-table-title">HKD Interest Settlement Rates</h3>
                                 <table className="w-full">
                                     <thead>
                                         <tr>
