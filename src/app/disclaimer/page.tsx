@@ -1,7 +1,7 @@
+"use server";
 import Layout from "@/components/Global/Layout";
-import type { Metadata } from "next";
 
-export default function DisclaimerPage() {
+export default async function DisclaimerPage() {
     return (
         <Layout
             title="Terms and conditions for accessing this website and usage of the Rates"
@@ -63,20 +63,18 @@ export default function DisclaimerPage() {
                         the TMA.
                     </p>
                 </article>
-                <div className="flex items-center gap-3">
-                    <label className="relative w-4 h-4">
-                        <input type="checkbox" className="absolute h-4 w-4 top-0" />
-                        <div className="absolute top-0 checkmark h-4 w-4 border border-gray-400 rounded-[2px] z-10"></div>
-                    </label>
-                    <span>I have read and agree to the above Terms and Conditions</span>
-                </div>
-                <div className="border-[0.5px] border-[#D9D9D9] w-full"></div>
-                <button className="bg-[#0053B0] px-4 py-2 text-white rounded-[5px]">Submit</button>
+                <form action="/benchmark/marketdata" className="grid gap-6">
+                    <div className="flex items-center gap-3">
+                        <label className="relative w-4 h-4">
+                            <input type="checkbox" className="absolute h-4 w-4 top-0" required/>
+                            {/* <div className="absolute top-0 checkmark h-4 w-4 border border-gray-400 rounded-[2px] z-10"></div> */}
+                        </label>
+                        <span>I have read and agree to the above Terms and Conditions</span>
+                    </div>
+                    <div className="border-[0.5px] border-[#D9D9D9] w-full"></div>
+                    <input className="ok-button" value="Submit" type="submit"/>
+                </form>
             </div>
         </Layout>
     );
 }
-
-export const metadata: Metadata = {
-    title: "Education Benchmark Statement - TMA"
-};

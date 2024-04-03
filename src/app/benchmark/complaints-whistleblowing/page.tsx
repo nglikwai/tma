@@ -80,7 +80,7 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                             <label className="flex">
                                 <div className="flex flex-col">
                                     <div className="gap-4">
-                                       <img src="/images/CAPTCHA.svg" alt="" />
+                                        <img src="/images/CAPTCHA.svg" alt="" />
                                         <div className="flex flex-col gap-4">
                                             <button>
                                                 <img src="/images/icon-volume.svg" alt="" />
@@ -98,11 +98,10 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                             </label>
                         </div>
                     </fieldset>
-                    <div className="flex gap-[10px] justify-end form-button">
-                        <button className="border-[#0053B0] border text-[#0053B0]">Cancel</button>
-                        <button className="bg-[#0053B0] text-white">
-                            <input type="submit" value="Submit" />
-                        </button>
+                    <div className="flex gap-[10px] justify-end ">
+                        <button className="not-button">Cancel</button>
+
+                        <input className="ok-button" type="submit" value="Submit" />
                     </div>
                 </form>
             </div>

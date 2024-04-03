@@ -1,8 +1,8 @@
+import "@/app/benchmark/marketdata/index.css";
 import { AccordionPanel } from "@chakra-ui/react";
 import Link from "next/link";
 import { FC } from "react";
 import AccordionItemWrapper from "./AccordionItemWrapper";
-import "@/app/benchmark/marketdata/index.css";
 type props = {
     title: string;
 };
@@ -11,10 +11,13 @@ const DollarMarketData: FC<props> = ({ title }) => {
         <AccordionItemWrapper title={title}>
             <AccordionPanel className="!p-4">
                 <div className="grid grid-cols-2 gap-6 sm:grid-cols-1">
-                    {["USD/HKD Spot Rate", "HKD Overnight Index Average (HONIA)"].map((item, index) => (
-                        <div key={item}>
+                    {[
+                        { title: "USD/HKD Spot Rate", href: "history/usd-hk-spot-rate" },
+                        { title: "HKD Overnight Index Average (HONIA)", href: "history/hkd-overnight-index-average" }
+                    ].map((item, index) => (
+                        <div key={item.title}>
                             <div className="bg-[#F8F8F8] px-4 market-table">
-                                <h3 className="market-table-title">HKD Interest Settlement Rates</h3>
+                                <h3 className="market-table-title">{item.title}</h3>
 
                                 <table>
                                     <tbody>
@@ -22,7 +25,7 @@ const DollarMarketData: FC<props> = ({ title }) => {
                                             <td className="!text-start">12/3/2024</td>
                                             <td className="!text-end">7.8223</td>
                                         </tr>
-                                        <HsitoryLink />
+                                        <HsitoryLink link={item.href} />
                                     </tbody>
                                 </table>
                             </div>
@@ -32,10 +35,13 @@ const DollarMarketData: FC<props> = ({ title }) => {
                             </p>
                         </div>
                     ))}
-                    {[1, 2].map(item => (
-                        <div key={item}>
+                    {[
+                        { title: "HKD Interest Settlement Rates", href: "history/hkd-interest-settlement-rates" },
+                        { title: "HONIA Compounding and Index", href: "history/honia-compounding-and-index" }
+                    ].map(item => (
+                        <div key={item.title}>
                             <div className="w-full bg-[#F8F8F8] px-4 market-table">
-                                <h3 className="market-table-title">HKD Interest Settlement Rates</h3>
+                                <h3 className="market-table-title">{item.title}</h3>
                                 <table className="w-full">
                                     <thead>
                                         <tr>
@@ -59,6 +65,7 @@ const DollarMarketData: FC<props> = ({ title }) => {
                                                 <td>{rate}</td>
                                             </tr>
                                         ))}
+                                        <HsitoryLink link={item.href} />
                                     </tbody>
                                 </table>
                             </div>
@@ -74,11 +81,11 @@ const DollarMarketData: FC<props> = ({ title }) => {
     );
 };
 
-const HsitoryLink = () => {
+const HsitoryLink: FC<{ link: string }> = ({ link }) => {
     return (
         <tr className="justify-end">
             <td colSpan={2} className="">
-                <Link href={"history"} className="text-[14px] text-[#0053B0] font-[700] flex gap-3 justify-end">
+                <Link href={link} className="text-[14px] text-[#0053B0] font-[700] flex gap-3 justify-end">
                     Historical Rates
                     <img src="/images/icon-arrow.svg" alt="" className="h-[8px] w-[30px] mt-[5px]" />
                 </Link>

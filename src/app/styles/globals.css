@@ -39,3 +39,31 @@ h3 {
 .max-center {
     @apply flex flex-col items-center;
 }
+
+button {
+    @apply transition;
+}
+
+.not-button {
+    @apply border-[#0053B0] border text-[#0053B0] hover:bg-[#F5F5F5] h-[40px] w-[87px];
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+.ok-button {
+    @apply bg-[#0053B0] text-white hover:bg-[#133D6C] cursor-pointer h-[40px] w-[87px];
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+
+input[type="checkbox"] {
+    accent-color: #1890ff;
+    border-radius: 2px;
+    z-index: 20;
+    opacity: 1;
+    appearance: checkbox;
+    opacity: 0.4;
+}
+
+input[type="checkbox"]:checked {
+    opacity: 1;
+}

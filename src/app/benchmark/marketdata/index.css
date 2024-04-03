@@ -5,10 +5,10 @@
 .market-table table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 .market-table td {
     padding: 16px 0;
-    width: 50%;
     text-align: center;
 }
 
@@ -26,4 +26,8 @@
     text-align: left;
     border-bottom: 1px solid #eee;
     font-weight: 700;
+}
+
+.market-table table thead tr {
+    @apply divide-x divide-[#F8F8F8];
 }
