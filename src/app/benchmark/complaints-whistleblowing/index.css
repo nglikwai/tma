@@ -1,0 +1,41 @@
+.complaint-form form {
+    @apply flex flex-col gap-6;
+}
+.complaint-form legend,
+.complaint-form label span {
+    @apply text-[#666666] w-[150px];
+}
+
+.complaint-form fieldset div {
+    @apply flex gap-4;
+}
+
+.complaint-form fieldset label {
+    @apply flex gap-2;
+}
+
+.complaint-form label {
+    @apply flex gap-4 items-center;
+    color: #000000d9;
+}
+
+.complaint-form input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea {
+    background-color: #f8f8f8;
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.form-button button {
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+
+.complaint-form input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #1890FF;
+}
