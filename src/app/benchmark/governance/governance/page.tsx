@@ -237,7 +237,7 @@ const GovernancePage: NextPage = async () => {
             <>
                 <Accordion allowToggle defaultIndex={0}>
                     {data.map(item => (
-                        <GovernanceCard item={item} />
+                        <GovernanceCard item={item} key={item.title} />
                     ))}
                 </Accordion>
             </>

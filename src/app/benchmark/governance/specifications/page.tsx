@@ -9,7 +9,7 @@ const SpecificationsPage: NextPage = async () => {
             <>
                 <div className="flex flex-col gap-6">
                     <h3 className="text-[26px]">Hong Kong Dollar</h3>
-                    <div className="grid grid-cols-3 gap-x-8 gap-y-6">
+                    <div className="grid grid-cols-3 sm:grid-cols-1 gap-x-8 gap-y-6">
                         {[1, 2, 3, 4, 5].map(item => (
                             <SpecificationCard key={item} />
                         ))}
@@ -17,7 +17,7 @@ const SpecificationsPage: NextPage = async () => {
                 </div>
                 <div className="flex flex-col gap-6">
                     <h3 className="text-[26px]">Hong Kong Dollar</h3>
-                    <div className="grid grid-cols-3 gap-x-8 gap-y-6">
+                    <div className="grid grid-cols-3 sm:grid-cols-1 gap-x-8 gap-y-6">
                         {[1, 2, 3, 4, 5].map(item => (
                             <SpecificationCard key={item} />
                         ))}
@@ -25,7 +25,7 @@ const SpecificationsPage: NextPage = async () => {
                 </div>
                 <div className="flex flex-col gap-6">
                     <h3 className="text-[26px]">Hong Kong Dollar</h3>
-                    <div className="grid grid-cols-3 gap-x-8 gap-y-6">
+                    <div className="grid grid-cols-3 sm:grid-cols-1 gap-x-8 gap-y-6">
                         {[1, 2, 3, 4, 5].map(item => (
                             <SpecificationCard key={item} />
                         ))}
@@ -38,12 +38,12 @@ const SpecificationsPage: NextPage = async () => {
 
 const SpecificationCard: FC<any> = () => {
     return (
-        <div className="flex gap-4">
+        <div className="flex gap-4 group cursor-pointer">
             <img src="/images/icon-pdf.svg" alt="" />
             <div className="flex flex-col gap-2">
-                <span>HKD Interest Settlement Rates (HKD HIBOR)</span>
+                <span className="group-hover:underline">HKD Interest Settlement Rates (HKD HIBOR)</span>
 
-                <a href="" className="flex text-[#0053B0] gap-2">
+                <a href="" className="flex text-[#0053B0] group-hover:text-[#0078FF] gap-2">
                     <span>Download (367KB)</span>
                     <img src="/images/icon-link.svg" alt="download" />
                 </a>

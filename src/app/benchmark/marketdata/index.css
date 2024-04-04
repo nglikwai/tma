@@ -31,3 +31,7 @@
 .market-table table thead tr {
     @apply divide-x divide-[#F8F8F8];
 }
+
+.important-note {
+    @apply text-[#D33238] text-[14px] hover:text-[#EF383F];
+}

@@ -1,9 +1,9 @@
 .complaint-form form {
-    @apply flex flex-col gap-6;
+    @apply flex flex-col gap-6 sm:items-start;
 }
 .complaint-form legend,
 .complaint-form label span {
-    @apply text-[#666666] w-[150px];
+    @apply text-[#666666] !w-[150px];
 }
 
 .complaint-form fieldset div {
@@ -15,7 +15,7 @@
 }
 
 .complaint-form label {
-    @apply flex gap-4 items-center;
+    @apply flex gap-4 items-center sm:flex-col sm:items-start sm:w-[90%];
     color: #000000d9;
 }
 
@@ -23,6 +23,7 @@
 input[type="tel"],
 input[type="email"],
 textarea {
+    @apply sm:w-full;
     background-color: #f8f8f8;
     flex-grow: 1;
     padding: 8px;

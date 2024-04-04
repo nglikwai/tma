@@ -1,39 +1,35 @@
 import { FC } from "react";
+import BenchmarkMenu from "./BenchmarkMenu";
 import Layout from "./Global/Layout";
-import LinkItem from "./LinkItem";
 
 type props = {
     title: string;
     children: React.ReactNode;
 };
+
+const menu = [
+    {
+        key: "Market Data",
+        href: "/benchmark/marketdata",
+        id: "marketdata",
+        length: 88
+    },
+    {
+        key: "Governance",
+        href: "/benchmark/governance/consultation",
+        id: "governance",
+        length: 87
+    },
+    {
+        key: "Complaints & Whistleblowing",
+        href: "/benchmark/complaints-whistleblowing",
+        id: "complaints-whistleblowing",
+        length: 211
+    }
+];
 const BenchMarkLayout: FC<props> = ({ title, children }) => {
     return (
-        <Layout
-            title="Benchmark"
-            content={
-                <div className="flex gap-8">
-                    {[
-                        {
-                            key: "Market Data",
-                            href: "/benchmark/marketdata",
-                            id: "marketdata"
-                        },
-                        {
-                            key: "Governance",
-                            href: "/benchmark/governance/consultation",
-                            id: "governance"
-                        },
-                        {
-                            key: "Complaints & Whistleblowing",
-                            href: "/benchmark/complaints-whistleblowing",
-                            id: "complaints-whistleblowing"
-                        }
-                    ].map((item, index) => (
-                        <LinkItem key={index} item={item} />
-                    ))}
-                </div>
-            }
-        >
+        <Layout title="Benchmark" content={<BenchmarkMenu menu={menu} id="main" />} steps={["Benchmark"]}>
             <div className="grid gap-y-6">
                 {/* <div className="h-10 bg-[#E6F7FF] text-[#000000D9] text-[14px] flex items-center justify-center">
                 US new home construction surged last month, as mortgage rates stayed high

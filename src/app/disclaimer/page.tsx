@@ -6,6 +6,7 @@ export default async function DisclaimerPage() {
         <Layout
             title="Terms and conditions for accessing this website and usage of the Rates"
             content={<p>Last revised: 9 December 2016</p>}
+            steps={["Disclaimer"]}
         >
             <div className="grid gap-6 justify-items-start">
                 <h2>Description</h2>
@@ -66,13 +67,13 @@ export default async function DisclaimerPage() {
                 <form action="/benchmark/marketdata" className="grid gap-6">
                     <div className="flex items-center gap-3">
                         <label className="relative w-4 h-4">
-                            <input type="checkbox" className="absolute h-4 w-4 top-0" required/>
+                            <input type="checkbox" className="absolute h-4 w-4 top-0" required />
                             {/* <div className="absolute top-0 checkmark h-4 w-4 border border-gray-400 rounded-[2px] z-10"></div> */}
                         </label>
                         <span>I have read and agree to the above Terms and Conditions</span>
                     </div>
                     <div className="border-[0.5px] border-[#D9D9D9] w-full"></div>
-                    <input className="ok-button" value="Submit" type="submit"/>
+                    <input className="ok-button" value="Submit" type="submit" />
                 </form>
             </div>
         </Layout>

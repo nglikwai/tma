@@ -1,19 +1,24 @@
-"use client";
+import { PATHS } from "@/constants/path";
+import Link from "next/link";
+import { FC } from "react";
+export type StepsProps = { steps?: string[] };
 
-import { usePathname } from "next/navigation";
-
-const StepMenu = () => {
-    const pathname = usePathname();
-    let name = pathname.split("/").pop();
-
-    if (name) {
-        name = name.charAt(0).toUpperCase() + name.slice(1);
-    }
+const StepMenu: FC<StepsProps> = ({ steps }) => {
     return (
-        <div className="h-[40px] text-[12px] max-container">
-            <span className="text-[#969696]">Home</span>
-            <span className="text-[#969696] px-1"> {">"}</span>
-            <span className="text-[#0053B0]">{name}</span>
+        <div className="h-[40px] text-[12px] max-container text-[#969696]">
+            <Link href="/disclaimer">Home</Link>
+            {steps?.map((step, index) => (
+                <span key={step}>
+                    <span>{" > "}</span>
+                    <Link
+                        href={PATHS[step as keyof typeof PATHS]}
+                        className="text-[#]"
+                        style={{ color: index === steps.length - 1 ? "#0053B0" : "" }}
+                    >
+                        {step}
+                    </Link>
+                </span>
+            ))}
         </div>
     );
 };

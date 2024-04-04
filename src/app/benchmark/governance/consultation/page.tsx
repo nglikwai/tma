@@ -1,5 +1,6 @@
 "use server";
 import ConsultationCard from "@/components/ConsultationCard";
+import DropMenu from "@/components/DropMenu";
 import GovernanceLayout from "@/components/GovernanceLayout";
 import { consultationStatus } from "@/type/consultation";
 import { NextPage } from "next";
@@ -10,8 +11,8 @@ const ConsultationPage: NextPage = async () => {
             <>
                 <div className="flex justify-between items-center">
                     <h1 className="font-[700] text-[26px] leading-[39px]">Consultation and Survey</h1>
-                    <select name="" id="">
-                        {[
+                    <DropMenu
+                        menu={[
                             { key: "all", title: "All" },
                             {
                                 key: "progress",
@@ -21,12 +22,8 @@ const ConsultationPage: NextPage = async () => {
                                 key: "closed",
                                 title: "Closed"
                             }
-                        ].map(item => (
-                            <option key={item.key} value={item.key}>
-                                {item.title}
-                            </option>
-                        ))}
-                    </select>
+                        ]}
+                    />
                 </div>
                 <div className="[&>div]:border-b-[#D9D9D9] [&>div]:border-b ">
                     {[

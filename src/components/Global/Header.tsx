@@ -1,6 +1,7 @@
-import StepMenu from "./StepMenu";
+import { FC } from "react";
+import StepMenu, { StepsProps } from "./StepMenu";
 
-const Header = () => {
+const Header: FC<StepsProps> = ({ steps }) => {
     return (
         <header className="w-full flex flex-col items-center">
             <div className="bg-[#0053B0] w-full max-center">
@@ -20,7 +21,7 @@ const Header = () => {
                 </div>
             </div>
             <div className="h-[56px] flex items-center max-container">Home</div>
-            <StepMenu />
+            <StepMenu steps={steps} />
         </header>
     );
 };

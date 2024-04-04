@@ -26,7 +26,11 @@ const tableData = [
 const HistoryUsdHkSpotRatePage: React.FC = () => {
     const title = "HKD Overnight Index Average (HONIA)";
     return (
-        <Layout title={title} content="Last revised: 13 Mar 2024">
+        <Layout
+            title={title}
+            content="Last revised: 13 Mar 2024"
+            steps={["Benchmark", "History of HKD Overnight Index Average (HONIA)"]}
+        >
             <div>
                 <div className="w-full bg-[#F8F8F8] px-4 market-table">
                     <h3 className="market-table-title">{title}</h3>

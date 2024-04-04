@@ -60,8 +60,8 @@ const ComponentTable: FC<{ component: GovernanceComponentType }> = ({ component 
                         <tr key={key}>
                             <td>{value[0]}</td>
 
-                            {value[1].map((item: any) => (
-                                <td key={item.title}>
+                            {value[1].map((item: any, index: number) => (
+                                <td key={item.title + index}>
                                     {item.href === "" ? (
                                         <span className="text-[#9E9E9E]">Nil</span>
                                     ) : (

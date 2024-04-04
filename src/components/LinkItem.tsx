@@ -11,7 +11,6 @@ type props = {
 const LinkItem: FC<props> = ({ item, style }) => {
     const pathname = usePathname();
 
-    const name = item.key.replace(" ", "").toLowerCase();
     const isCurrent = pathname.includes(item.id);
 
     return (
