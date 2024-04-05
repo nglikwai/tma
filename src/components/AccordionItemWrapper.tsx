@@ -1,5 +1,6 @@
 "use client";
 import { AccordionButton, AccordionItem } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 import { FC } from "react";
 import CrossIcon from "./icon/CrossIcon";
 type props = {
@@ -7,11 +8,16 @@ type props = {
     title: string;
 };
 const AccordionItemWrapper: FC<props> = ({ children, title }) => {
+    const router = useRouter();
+    const handleOnClick = () => {
+        router.push(`?index=${title}`);
+    };
     return (
         <AccordionItem borderColor={"#DDE6F1"}>
             {({ isExpanded }) => (
                 <>
                     <div
+                        onClick={handleOnClick}
                         className={`bg-[#0053B0] h-[59px] px-4 font-[700] flex items-center text-white transition hover:!bg-[${isExpanded ? "0053B0" : "#E6F3FF"}]`}
                         style={{ color: isExpanded ? "#fff" : "#212121", background: isExpanded ? "#0053B0" : "transparent" }}
                     >

@@ -1,6 +1,7 @@
 import "@/app/benchmark/marketdata/index.css";
 import Layout from "@/components/Global/Layout";
-import OvernightIndexTable from "@/components/table/OvernightIndexTable";
+import SpotRateTable from "@/components/table/SpotRateTable";
+import { NextPage } from "next";
 
 const tableData = [
     {
@@ -24,17 +25,16 @@ const tableData = [
         rate: 3.70929
     }
 ];
-const HistoryUsdHkSpotRatePage: React.FC = () => {
-    const title = "HKD Overnight Index Average (HONIA)";
+const HistoryUsdCnySpotRatePage: NextPage = () => {
     return (
         <Layout
-            title={title}
+            title="USD/CNY(HK) Spot Rate"
             content="Last revised: 13 Mar 2024"
-            steps={["Benchmark", "History of HKD Overnight Index Average (HONIA)"]}
+            steps={["Benchmark", "History of USD/CNY(HK) Spot Rate"]}
         >
-            <OvernightIndexTable title={title} data={tableData} />
+            <SpotRateTable data={tableData} />
         </Layout>
     );
 };
 
-export default HistoryUsdHkSpotRatePage;
+export default HistoryUsdCnySpotRatePage;

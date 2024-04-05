@@ -1,8 +1,9 @@
 "use server";
 import BenchMarkLayout from "@/components/BenchMarkLayout";
 import DollarMarketData from "@/components/DollarMarketData";
-import { Accordion } from "@chakra-ui/react";
+import AccordionClient from "@/components/client/AccordionClient";
 import { NextPage } from "next";
+import { data } from "./data";
 
 const MarketDataPage: NextPage = async () => {
     return (
@@ -10,11 +11,11 @@ const MarketDataPage: NextPage = async () => {
             {/* <div className="h-10 bg-[#E6F7FF] text-[#000000D9] text-[14px] flex items-center justify-center">
                     US new home construction surged last month, as mortgage rates stayed high
                 </div> */}
-            <Accordion allowToggle defaultIndex={0}>
-                {["Hong Kong Dollar", "Renminbi"].map(item => (
-                    <DollarMarketData key={item} title={item} />
+            <AccordionClient>
+                {data.map((item: any) => (
+                    <DollarMarketData key={item} item={item} />
                 ))}
-            </Accordion>
+            </AccordionClient>
         </BenchMarkLayout>
     );
 };

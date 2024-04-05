@@ -1,5 +1,6 @@
 "use server";
 import Layout from "@/components/Global/Layout";
+import TermAndCondition from "@/components/TermAndCondition";
 
 export default async function DisclaimerPage() {
     return (
@@ -8,10 +9,8 @@ export default async function DisclaimerPage() {
             content={<p>Last revised: 9 December 2016</p>}
             steps={["Disclaimer"]}
         >
-            <div className="grid gap-6 justify-items-start">
-                <h2>Description</h2>
-
-                <article>
+            <TermAndCondition redirect="/benchmark/marketdata">
+                <>
                     <p>
                         The content in this website (including but not limited to the benchmarks administrated by the Treasury
                         Markets Association (TMA) and reference rates made available by the TMA (collectively the “Rates”)) are
@@ -63,19 +62,8 @@ export default async function DisclaimerPage() {
                         this website shall constitute your acceptance of the prevailing version of terms and conditions set out by
                         the TMA.
                     </p>
-                </article>
-                <form action="/benchmark/marketdata" className="grid gap-6 w-full">
-                    <div className="flex items-center gap-3">
-                        <label className="relative w-4 h-4">
-                            <input type="checkbox" className="absolute h-4 w-4 top-0" required />
-                            {/* <div className="absolute top-0 checkmark h-4 w-4 border border-gray-400 rounded-[2px] z-10"></div> */}
-                        </label>
-                        <span>I have read and agree to the above Terms and Conditions</span>
-                    </div>
-                    <div className="border-[0.5px] border-[#D9D9D9] w-full"></div>
-                    <input className="ok-button" value="Submit" type="submit" />
-                </form>
-            </div>
+                </>
+            </TermAndCondition>
         </Layout>
     );
 }

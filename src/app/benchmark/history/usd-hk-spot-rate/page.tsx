@@ -1,5 +1,7 @@
 import "@/app/benchmark/marketdata/index.css";
 import Layout from "@/components/Global/Layout";
+import SpotRateTable from "@/components/table/SpotRateTable";
+import { NextPage } from "next";
 
 const tableData = [
     {
@@ -23,36 +25,14 @@ const tableData = [
         rate: 3.70929
     }
 ];
-const HistoryUsdHkSpotRatePage: React.FC = () => {
+const HistoryUsdHkSpotRatePage: NextPage = () => {
     return (
         <Layout
             title="USD/HKD Spot Rate"
             content="Last revised: 13 Mar 2024"
             steps={["Benchmark", "History of USD and HKD Spot Rate"]}
         >
-            <div>
-                <div className="w-full bg-[#F8F8F8] px-4 market-table">
-                    <h3 className="market-table-title">USD/HKD Spot Rate</h3>
-                    <table className="w-full">
-                        <thead>
-                            <tr>
-                                <th>Title</th>
-                                {tableData.map(item => (
-                                    <th key={item.date}>{item.date}</th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Rate</td>
-                                {tableData.map(item => (
-                                    <td key={item.date}>{item.date}</td>
-                                ))}
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <SpotRateTable data={tableData} />
         </Layout>
     );
 };

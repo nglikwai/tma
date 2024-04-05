@@ -14,7 +14,7 @@ body {
 header {
     color: #212121;
 }
-a {
+.link {
     color: #0053b0;
     text-decoration: none;
 }

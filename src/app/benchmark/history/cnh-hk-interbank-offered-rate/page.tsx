@@ -70,12 +70,12 @@ const tableData = [
     }
 ];
 const HistoryUsdHkSpotRatePage: React.FC = () => {
-    const title = "HKD Interest Settlement Rates";
+    const title = "CNH Hong Kong Interbank Offered Rate";
     return (
         <Layout
             title={title}
             content="Last revised: 13 Mar 2024"
-            steps={["Benchmark", "History of HKD Interest Settlement Rates"]}
+            steps={["Benchmark", "History of CNH Hong Kong Interbank Offered Rate"]}
         >
             <RateDetailTable data={tableData} title={title} />
         </Layout>
