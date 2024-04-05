@@ -1,3 +1,3 @@
-import type { ReduxState } from "@/redux";
+// import type { ReduxState } from "@/redux";
 
-export const selectUser = (state: ReduxState) => state.user;
+export const selectUser = (state: any) => state.user;
