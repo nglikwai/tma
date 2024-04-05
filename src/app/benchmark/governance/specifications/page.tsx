@@ -38,7 +38,7 @@ const SpecificationsPage: NextPage = async () => {
 
 const SpecificationCard: FC<any> = () => {
     return (
-        <div className="flex gap-4 group cursor-pointer">
+        <div className="flex gap-4 group cursor-pointer items-start">
             <img src="/images/icon-pdf.svg" alt="" />
             <div className="flex flex-col gap-2">
                 <span className="group-hover:underline">HKD Interest Settlement Rates (HKD HIBOR)</span>

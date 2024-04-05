@@ -81,7 +81,7 @@ const DollarMarketData: FC<props> = ({ title }) => {
                             )
                         }
                     ].map((item, index) => (
-                        <div key={item.title}>
+                        <div key={item.title} className="flex flex-col items-start">
                             <div className="bg-[#F8F8F8] px-4 market-table">
                                 <h3 className="market-table-title">{item.title}</h3>
                                 <table>
