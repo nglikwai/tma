@@ -8,7 +8,7 @@ type props = {
 };
 const AccordionItemWrapper: FC<props> = ({ children, title }) => {
     return (
-        <AccordionItem>
+        <AccordionItem borderColor={'#DDE6F1'}>
             {({ isExpanded }) => (
                 <>
                     <div
