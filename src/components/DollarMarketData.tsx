@@ -63,9 +63,16 @@ const DollarMarketData: FC<props> = ({ title }) => {
                                     With effect from 1 August 2016, the official name of the Spot USD/HKD Fixing has been amended
                                     to USD/HKD Spot Rate. The benchmark is calculated based on actual transactions executed in a
                                     window of 30 minutes centred at 11am. Details on the change in calculation methodology can be
-                                    found at <a className="text-[#0053B0]">press release</a>. This content may not be reproduced,
-                                    altered, transmitted, disseminated, distributed or redistributed, without prior written
-                                    permission from TMA.
+                                    found at{" "}
+                                    <a
+                                        className="text-[#0053B0]"
+                                        href="https://www.tma.org.hk/en_newsevents_n1.aspx?Back=T&newsId=282"
+                                        target="_blank"
+                                    >
+                                        press release
+                                    </a>
+                                    . This content may not be reproduced, altered, transmitted, disseminated, distributed or
+                                    redistributed, without prior written permission from TMA.
                                 </p>
                             )
                         },
@@ -97,14 +104,14 @@ const DollarMarketData: FC<props> = ({ title }) => {
                             <ImportantNote content={item.content} />
                         </div>
                     ))}
-                    <div key={table3.title}>
+                    <div key={table3.title} className="flex flex-col items-start">
                         <div className="w-full bg-[#F8F8F8] px-4 market-table">
                             <h3 className="market-table-title">{table3.title}</h3>
                             <table className="w-full">
                                 <thead>
                                     <tr>
                                         <th>MATURITY</th>
-                                        <th>RATE</th>
+                                        <th>Rate</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -121,7 +128,7 @@ const DollarMarketData: FC<props> = ({ title }) => {
                         <ImportantNote content={<p>Owned by The Hong Kong Association of Banks</p>} />
                     </div>
 
-                    <div key={table4.title}>
+                    <div key={table4.title} className="flex flex-col items-start">
                         <div className="w-full bg-[#F8F8F8] px-4 market-table">
                             <h3 className="market-table-title">{table4.title}</h3>
                             <table className="w-full">
@@ -174,7 +181,13 @@ const DollarMarketData: FC<props> = ({ title }) => {
                                         As administrator of Hong Kong Dollar Overnight Index Average (HONIA), which is the
                                         alternative risk-free rate of HIBOR, the TMA decide to publish the following:
                                     </p>
-                                    <p>1. Standard market convention of HIBOR 1M, 3M and 6M with accrued HONIA;</p>
+                                    <p>
+                                        1.
+                                        <a className="text-[#0053B0]" href="https://www.hkab.org.hk/en/home" target="_blank">
+                                            Standard market convention of HIBOR
+                                        </a>
+                                         1M, 3M and 6M with accrued HONIA;
+                                    </p>
                                     <p>2. Fixed 30-day, 90-day and 180-day average HONIA;</p>
                                     <p>
                                         2-1. Fixed-day count structure: the backward start date may fall on a weekend or public

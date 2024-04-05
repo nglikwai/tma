@@ -1,7 +1,7 @@
 import { FC } from "react";
 import LinkItem from "./LinkItem";
 
-export type ListStyle = { activeColor: string; inactiveColor: string };
+export type ListStyle = { activeColor?: string; inactiveColor?: string; hoverColor?: string };
 export type ListItem = { key: string; href: string; id: string };
 
 type props = {

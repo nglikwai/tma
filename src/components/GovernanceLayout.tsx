@@ -20,7 +20,11 @@ const menu = [
 const GovernanceLayout: FC<props> = ({ children }) => {
     return (
         <BenchMarkLayout title="Governance">
-            <BenchmarkMenu menu={menu} style={{ activeColor: "#1890FF", inactiveColor: "#757575" }} id="gov" />
+            <BenchmarkMenu
+                menu={menu}
+                style={{ activeColor: "#1890FF", inactiveColor: "#757575", hoverColor: 'hover:text-[#212121]' }}
+                id="gov"
+            />
 
             {children}
         </BenchMarkLayout>

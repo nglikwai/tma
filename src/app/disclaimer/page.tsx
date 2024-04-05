@@ -64,7 +64,7 @@ export default async function DisclaimerPage() {
                         the TMA.
                     </p>
                 </article>
-                <form action="/benchmark/marketdata" className="grid gap-6">
+                <form action="/benchmark/marketdata" className="grid gap-6 w-full">
                     <div className="flex items-center gap-3">
                         <label className="relative w-4 h-4">
                             <input type="checkbox" className="absolute h-4 w-4 top-0" required />

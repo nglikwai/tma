@@ -27,13 +27,6 @@
     user-select: none;
 }
 
-.tabs ul li label:hover,
-.tabs ul li label:focus,
-.tabs ul li label:active {
-    outline: 0;
-    color: #1890ff;
-}
-
 .tabs .slider {
     position: relative;
     transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);

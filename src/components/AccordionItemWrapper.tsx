@@ -8,11 +8,11 @@ type props = {
 };
 const AccordionItemWrapper: FC<props> = ({ children, title }) => {
     return (
-        <AccordionItem borderColor={'#DDE6F1'}>
+        <AccordionItem borderColor={"#DDE6F1"}>
             {({ isExpanded }) => (
                 <>
                     <div
-                        className="bg-[#0053B0] h-[59px] px-4 font-[700] flex items-center text-white"
+                        className={`bg-[#0053B0] h-[59px] px-4 font-[700] flex items-center text-white transition hover:!bg-[${isExpanded ? "0053B0" : "#E6F3FF"}]`}
                         style={{ color: isExpanded ? "#fff" : "#212121", background: isExpanded ? "#0053B0" : "transparent" }}
                     >
                         <div className="w-full">

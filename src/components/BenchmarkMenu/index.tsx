@@ -53,7 +53,7 @@ const BenchmarkMenu: FC<props> = ({ menu, style, id }) => {
                             }}
                             onClick={handleRouteChange(item.href)}
                         >
-                            <span>{item.key}</span>
+                            <span className={`${style?.hoverColor ? style.hoverColor : "hover:text-[#62B4FF]"}`}>{item.key}</span>
                         </label>
                     </li>
                 ))}

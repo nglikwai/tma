@@ -28,6 +28,6 @@ const config: Config = {
     corePlugins: {
         preflight: true // <== disable this!
     },
-    safelist: ["bg-[#877750]"]
+    safelist: ["bg-[#877750]", "text-[#62B4FF]", "text-[#000000]"]
 };
 export default config;
