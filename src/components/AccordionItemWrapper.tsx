@@ -6,11 +6,12 @@ import CrossIcon from "./icon/CrossIcon";
 type props = {
     children: React.ReactNode;
     title: string;
+    rememberIndex?: boolean;
 };
-const AccordionItemWrapper: FC<props> = ({ children, title }) => {
+const AccordionItemWrapper: FC<props> = ({ children, title, rememberIndex }) => {
     const router = useRouter();
     const handleOnClick = () => {
-        router.push(`?index=${title}`);
+        rememberIndex && router.push(`?index=${title}`);
     };
     return (
         <AccordionItem borderColor={"#DDE6F1"}>
@@ -18,13 +19,15 @@ const AccordionItemWrapper: FC<props> = ({ children, title }) => {
                 <>
                     <div
                         onClick={handleOnClick}
-                        className={`bg-[#0053B0] h-[59px] px-4 font-[700] flex items-center text-white transition hover:!bg-[${isExpanded ? "0053B0" : "#E6F3FF"}]`}
+                        className={`bg-[#0053B0] h-[59px] sm:h-auto px-4 sm:px-0 font-[700] flex items-center text-white transition hover:!bg-[${isExpanded ? "0053B0" : "#E6F3FF"}]`}
                         style={{ color: isExpanded ? "#fff" : "#212121", background: isExpanded ? "#0053B0" : "transparent" }}
                     >
                         <div className="w-full">
                             <AccordionButton className="hover:!bg-transparent">
                                 <div className="flex items-center gap-4">
-                                    <CrossIcon isExpanded={isExpanded} />
+                                    <div className="w-4">
+                                        <CrossIcon isExpanded={isExpanded} />
+                                    </div>
                                     <h3 className="text-[18px]">{title}</h3>
                                 </div>
                             </AccordionButton>

@@ -1,7 +1,7 @@
 import type { Metadata, NextPage } from "next";
 
 export const metadata: Metadata = {
-    title: "HONIA Compounding and Index"
+    title: "HONIA Compounding and Index - TMA"
 };
 
 type props = {

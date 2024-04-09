@@ -1,7 +1,7 @@
 import type { Metadata, NextPage } from "next";
 
 export const metadata: Metadata = {
-    title: "USD/HKD Spot Rate"
+    title: "USD/CNY(HK) Spot Rate - TMA"
 };
 
 type props = {

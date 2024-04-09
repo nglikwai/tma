@@ -1,7 +1,20 @@
 import "@/app/benchmark/marketdata/index.css";
-import Layout from "@/components/Global/Layout";
 import SpotRateTable from "@/components/table/SpotRateTable";
 import { NextPage } from "next";
+
+const HistoryUsdCnySpotRatePage: NextPage = () => {
+    return (
+        // <Layout
+        //     title="USD/CNY(HK) Spot Rate"
+        //     content="Last revised: 13 Mar 2024"
+        //     steps={["Benchmark", "History of USD/CNY(HK) Spot Rate"]}
+        // >
+        <SpotRateTable data={tableData} />
+        // </Layout>
+    );
+};
+
+export default HistoryUsdCnySpotRatePage;
 
 const tableData = [
     {
@@ -25,16 +38,3 @@ const tableData = [
         rate: 3.70929
     }
 ];
-const HistoryUsdCnySpotRatePage: NextPage = () => {
-    return (
-        <Layout
-            title="USD/CNY(HK) Spot Rate"
-            content="Last revised: 13 Mar 2024"
-            steps={["Benchmark", "History of USD/CNY(HK) Spot Rate"]}
-        >
-            <SpotRateTable data={tableData} />
-        </Layout>
-    );
-};
-
-export default HistoryUsdCnySpotRatePage;

@@ -1,31 +1,35 @@
 "use server";
-import BenchMarkLayout from "@/components/BenchMarkLayout";
 import { NextPage } from "next";
 import "./index.css";
 
 const ComplaintsAndWhistleblowingPage: NextPage = async () => {
     return (
-        <BenchMarkLayout title="Complaints & Whistleblowing">
-            <div className="px-4 py-8 complaint-form">
-                <form action="" className="text-[#666666]">
-                    <fieldset>
-                        <div>
-                            <legend>Type of Report</legend>
+        <div className="px-4 py-8 complaint-form">
+            <form action="" className="text-[#666666]">
+                <fieldset className="w-full">
+                    <div className="w-full">
+                        <legend>
+                            Type of Report<span className="text-[#EF383F]">*</span>
+                        </legend>
+                        <div className="option">
                             <label htmlFor="complaints">
                                 <input type="radio" id="complaints" name="reportType" value="Complaints" required />
                                 Complaints
                             </label>
-
                             <label htmlFor="whistleblowing">
                                 <input type="radio" id="whistleblowing" name="reportType" value="Whistleblowing" required />
                                 Whistleblowing
                             </label>
                         </div>
-                    </fieldset>
+                    </div>
+                </fieldset>
 
-                    <fieldset>
-                        <div>
-                            <legend>Recipient</legend>
+                <fieldset>
+                    <div>
+                        <legend>
+                            Recipient<span className="text-[#EF383F]">*</span>
+                        </legend>
+                        <div className="option">
                             <label htmlFor="office">
                                 <input type="radio" id="office" name="recipient" value="TMA Office" required />
                                 TMA Office
@@ -41,71 +45,77 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                                 Both
                             </label>
                         </div>
-                    </fieldset>
+                    </div>
+                </fieldset>
 
-                    <label htmlFor="family-name">
-                        <span> Family Name:</span> <input type="text" id="family-name" name="familyName" required />
-                    </label>
+                <label htmlFor="family-name">
+                    <span className="title"> Family Name</span> <input type="text" id="family-name" name="familyName" required />
+                </label>
 
-                    <label htmlFor="given-name">
-                        <span>Given Name:</span> <input type="text" id="given-name" name="givenName" required />
-                    </label>
+                <label htmlFor="given-name">
+                    <span className="title">Given Name</span> <input type="text" id="given-name" name="givenName" required />
+                </label>
 
-                    <label htmlFor="contact-number">
-                        <span>Contact Number:</span>
-                        <input type="tel" id="contact-number" name="contactNumber" required />
-                    </label>
+                <label htmlFor="contact-number">
+                    <span>Contact Number</span>
+                    <input type="tel" id="contact-number" name="contactNumber" required />
+                </label>
 
-                    <label htmlFor="email">
-                        <span>Email Address:</span>
-                        <input type="email" id="email" name="email" required />
-                    </label>
+                <label htmlFor="email">
+                    <span>
+                        Email Address<i className="text-[#EF383F]">*</i>
+                    </span>
+                    <input type="email" id="email" name="email" required />
+                </label>
 
-                    <label htmlFor="message" className="!items-start  ">
-                        <span>Message:</span>
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows={5}
-                            required
-                            maxLength={1000}
-                            className="!h-[76px] !py-[5px] !px-3"
-                        ></textarea>
-                    </label>
+                <label htmlFor="message" className="!items-start  ">
+                    <span>
+                        Message<i className="text-[#EF383F]">*</i>
+                    </span>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows={5}
+                        required
+                        maxLength={1000}
+                        className="!h-[76px] !py-[5px] !px-3"
+                    ></textarea>
+                </label>
 
-                    <fieldset>
-                        <div>
-                            <legend>Verification Code</legend>
+                <fieldset>
+                    <div>
+                        <legend>
+                            Verification Code<i className="text-[#EF383F]">*</i>
+                        </legend>
 
-                            <label className="flex">
-                                <div className="flex flex-col">
-                                    <div className="gap-4">
-                                        <img src="/images/CAPTCHA.svg" alt="" />
-                                        <div className="flex flex-col gap-4">
-                                            <button>
-                                                <img src="/images/icon-volume.svg" alt="" />
-                                            </button>
-                                            <button>
-                                                <img src="/images/icon-refresh.svg" alt="" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="/images/icon-verified.svg" alt="" />
-                                        <input type="text" className="h-[54px] !py-0 !px-4" />
+                        <label className="flex">
+                            <div className="flex flex-col gap-4">
+                                <div className="gap-4 flex">
+                                    <img src="/images/CAPTCHA.svg" alt="" />
+                                    <div className="flex flex-col gap-4">
+                                        <button>
+                                            <img src="/images/icon-volume.svg" alt="" />
+                                        </button>
+                                        <button>
+                                            <img src="/images/icon-refresh.svg" alt="" />
+                                        </button>
                                     </div>
                                 </div>
-                            </label>
-                        </div>
-                    </fieldset>
-                    <div className="flex gap-[10px] justify-end ">
-                        <button className="not-button">Cancel</button>
-
-                        <input className="ok-button" type="submit" value="Submit" />
+                                <div className="flex gap-[19px]">
+                                    <img src="/images/icon-verified.svg" alt="" />
+                                    <input type="text" className="h-[54px] !py-0 !px-4" />
+                                </div>
+                            </div>
+                        </label>
                     </div>
-                </form>
-            </div>
-        </BenchMarkLayout>
+                </fieldset>
+                <div className="flex gap-[10px] justify-end ">
+                    <button className="not-button">Cancel</button>
+
+                    <input className="ok-button" type="submit" value="Submit" />
+                </div>
+            </form>
+        </div>
     );
 };
 export default ComplaintsAndWhistleblowingPage;

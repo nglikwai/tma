@@ -1,6 +1,20 @@
 import "@/app/benchmark/marketdata/index.css";
-import Layout from "@/components/Global/Layout";
 import RateDetailTable from "@/components/table/RateDetailTable";
+
+const HistoryUsdHkSpotRatePage: React.FC = () => {
+    const title = "CNH Hong Kong Interbank Offered Rate";
+    return (
+        // <Layout
+        //     title={title}
+        //     content="Last revised: 13 Mar 2024"
+        //     steps={["Benchmark", "History of CNH Hong Kong Interbank Offered Rate"]}
+        // >
+        <RateDetailTable data={tableData} title={title} />
+        // </Layout>
+    );
+};
+
+export default HistoryUsdHkSpotRatePage;
 
 const tableData = [
     {
@@ -69,17 +83,3 @@ const tableData = [
         }
     }
 ];
-const HistoryUsdHkSpotRatePage: React.FC = () => {
-    const title = "CNH Hong Kong Interbank Offered Rate";
-    return (
-        <Layout
-            title={title}
-            content="Last revised: 13 Mar 2024"
-            steps={["Benchmark", "History of CNH Hong Kong Interbank Offered Rate"]}
-        >
-            <RateDetailTable data={tableData} title={title} />
-        </Layout>
-    );
-};
-
-export default HistoryUsdHkSpotRatePage;

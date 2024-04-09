@@ -35,3 +35,23 @@
 .important-note {
     @apply text-[#D33238] text-[14px] hover:text-[#EF383F];
 }
+
+.two-row-table table {
+    @apply sm:grid sm:grid-cols-2;
+}
+
+.two-row-table tr {
+    @apply sm:flex sm:flex-col;
+}
+
+.two-row-table th,
+.two-row-table td {
+    @apply sm:h-[60px];
+}
+
+.multi-row-table-scroll {
+    @apply sm:overflow-x-scroll max-w-[90vw];
+}
+.multi-row-table table {
+    @apply sm:!w-[700px];
+}

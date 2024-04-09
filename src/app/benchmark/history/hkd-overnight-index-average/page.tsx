@@ -27,13 +27,13 @@ const tableData = [
 const HistoryUsdHkSpotRatePage: React.FC = () => {
     const title = "HKD Overnight Index Average (HONIA)";
     return (
-        <Layout
-            title={title}
-            content="Last revised: 13 Mar 2024"
-            steps={["Benchmark", "History of HKD Overnight Index Average (HONIA)"]}
-        >
+        // <Layout
+        //     title={title}
+        //     content="Last revised: 13 Mar 2024"
+        //     steps={["Benchmark", "History of HKD Overnight Index Average (HONIA)"]}
+        // >
             <OvernightIndexTable title={title} data={tableData} />
-        </Layout>
+        // </Layout>
     );
 };
 

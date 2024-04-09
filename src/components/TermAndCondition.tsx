@@ -8,7 +8,6 @@ type props = {
 const TermAndCondition: FC<props> = ({ children, redirect }) => {
     return (
         <div className="grid gap-6 justify-items-start">
-            <h2>Description</h2>
             <article>{children}</article>
 
             <form action={redirect} className="grid gap-6 w-full">

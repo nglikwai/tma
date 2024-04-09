@@ -1,5 +1,60 @@
 import "@/app/benchmark/marketdata/index.css";
-import Layout from "@/components/Global/Layout";
+
+const HistoryUsdHkSpotRatePage: React.FC = () => {
+    const title = "HONIA Compounding and Index";
+    return (
+        // <Layout title={title} content="Last revised: 13 Mar 2024" steps={["Benchmark", "HONIA Compounding and Index"]}>
+        <div className="grid grid-cols-2 sm:grid-cols-1 gap-6 bg-[#F8F8F8] px-4">
+            {[1, 2, 3, 4, 5].map(item => (
+                <div className="w-full bg-[#F8F8F8] market-table">
+                    <h3 className="market-table-title">03-11-2024</h3>
+                    <table className="w-full">
+                        <thead>
+                            <tr>
+                                <th>DATE</th>
+                                <th>Index</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {table4.data.date.map((data, index) => (
+                                <tr key={index}>
+                                    <td>{data.date}</td>
+                                    <td>{data.index}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th>AVERAGE</th>
+                                <th>Index</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {table4.data.average.map((data, index) => (
+                                <tr key={index}>
+                                    <td>
+                                        <span>{data.day} day </span>
+                                        <span className="text-[12px]">(backward to {data.backward})</span>
+                                    </td>
+                                    <td>{data.index}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th>HONIA Index (Since 5 Apr 2016)</th>
+                                <th>1.07705805</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            ))}
+        </div>
+        // </Layout>
+    );
+};
+
+export default HistoryUsdHkSpotRatePage;
 
 const table4 = {
     title: "HONIA Compounding and Index",
@@ -28,58 +83,3 @@ const table4 = {
         ]
     }
 };
-const HistoryUsdHkSpotRatePage: React.FC = () => {
-    const title = "HONIA Compounding and Index";
-    return (
-        <Layout title={title} content="Last revised: 13 Mar 2024" steps={["Benchmark", "HONIA Compounding and Index"]}>
-            <div className="grid grid-cols-2 gap-6 bg-[#F8F8F8] px-4">
-                {[1, 2, 3, 4, 5].map(item => (
-                    <div className="w-full bg-[#F8F8F8] market-table">
-                        <h3 className="market-table-title">03-11-2024</h3>
-                        <table className="w-full">
-                            <thead>
-                                <tr>
-                                    <th>DATE</th>
-                                    <th>Index</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {table4.data.date.map((data, index) => (
-                                    <tr key={index}>
-                                        <td>{data.date}</td>
-                                        <td>{data.index}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                            <thead>
-                                <tr>
-                                    <th>AVERAGE</th>
-                                    <th>Index</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {table4.data.average.map((data, index) => (
-                                    <tr key={index}>
-                                        <td>
-                                            <span>{data.day} day </span>
-                                            <span className="text-[12px]">(backward to {data.backward})</span>
-                                        </td>
-                                        <td>{data.index}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                            <thead>
-                                <tr>
-                                    <th>HONIA Index (Since 5 Apr 2016)</th>
-                                    <th>1.07705805</th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                ))}
-            </div>
-        </Layout>
-    );
-};
-
-export default HistoryUsdHkSpotRatePage;

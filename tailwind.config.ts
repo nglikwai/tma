@@ -1,3 +1,4 @@
+import { SCREEN_SIZE } from "./screen";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -17,10 +18,10 @@ const config: Config = {
                 "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))"
             },
             screens: {
-                xl: { max: "1272px" },
-                lg: { max: "1023px" },
-                md: { max: "767px" },
-                sm: { max: "639px" }
+                xl: { max: SCREEN_SIZE.xl + "px" },
+                lg: { max: SCREEN_SIZE.lg + "px" },
+                md: { max: SCREEN_SIZE.md + "px" },
+                sm: { max: SCREEN_SIZE.sm + "px" }
             }
         }
     },

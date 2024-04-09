@@ -51,7 +51,7 @@ const ComponentTable: FC<{ component: GovernanceComponentType }> = ({ component 
             <table>
                 <thead>
                     <tr>
-                        <th className="w-[150px]">Years</th>
+                        <th className="w-[150px] sm:w-auto">Years</th>
                         <th colSpan={component.maxCol}>{component.header}</th>
                     </tr>
                 </thead>

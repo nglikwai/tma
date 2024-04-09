@@ -1,7 +1,7 @@
 import type { Metadata, NextPage } from "next";
 
 export const metadata: Metadata = {
-    title: "HKD Interest Settlement Rates"
+    title: "CNH Hong Kong Interbank Offered Rate - TMA"
 };
 
 type props = {

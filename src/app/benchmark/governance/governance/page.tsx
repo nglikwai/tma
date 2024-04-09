@@ -1,6 +1,5 @@
 "use server";
 import GovernanceCard from "@/components/GovernanceCard";
-import GovernanceLayout from "@/components/GovernanceLayout";
 import { Accordion } from "@chakra-ui/react";
 import { NextPage } from "next";
 
@@ -288,15 +287,13 @@ const data: GovernanceData[] = [
 
 const GovernancePage: NextPage = async () => {
     return (
-        <GovernanceLayout>
-            <>
-                <Accordion allowToggle defaultIndex={0}>
-                    {data.map(item => (
-                        <GovernanceCard item={item} key={item.title} />
-                    ))}
-                </Accordion>
-            </>
-        </GovernanceLayout>
+        <>
+            <Accordion defaultIndex={0}>
+                {data.map(item => (
+                    <GovernanceCard item={item} key={item.title} />
+                ))}
+            </Accordion>
+        </>
     );
 };
 export default GovernancePage;

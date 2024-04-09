@@ -1,7 +1,7 @@
 import type { Metadata, NextPage } from "next";
 
 export const metadata: Metadata = {
-    title: "Education Benchmark Complaints Governance"
+    title: "Governance - TMA"
 };
 
 type props = {

@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <footer className="text-white">
-            <div className="bg-[#133D6C] max-center h-[109px] py-6">
+            <div className="bg-[#133D6C] max-center h-[109px] sm:h-auto py-6">
                 <div className="max-container  flex items-center gap-14">
                     <div className="w-[142px] flex flex-col items-center">
                         <img src="/images/footer-logo.svg" alt="logo" />

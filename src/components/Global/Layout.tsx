@@ -1,3 +1,5 @@
+"use client";
+
 import { FC } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -21,7 +23,7 @@ const Layout: FC<props> = ({ children, title, content, steps }) => {
                             <div className="triangle"></div>
                         </div>
                     </div>
-                    <div className="max-container py-[60px] h-[219px] flex flex-col justify-start z-[2]">
+                    <div className="max-container py-[60px] sm:py-6 h-[219px] sm:h-auto flex flex-col justify-start z-[2]">
                         <h1 className="text-[36px] font-[700] pb-4">{title}</h1>
                         <div>{content}</div>
                     </div>

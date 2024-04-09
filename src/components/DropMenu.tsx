@@ -17,7 +17,7 @@ const DropMenu: FC<props> = ({ menu }) => {
                 background={"#FFFFFF"}
                 _hover={{ background: "#FFFFFF", border: "1px solid #40A9FF" }}
                 _active={{ background: "#FFFFFF", border: "1px solid #40A9FF" }}
-                className="flex items-center border border-[#D9D9D9] px-3 py-2 w-[192px] h-10 justify-between text-start"
+                className="flex items-center border border-[#D9D9D9] px-3 py-2 w-[192px] sm:w-auto h-10 justify-between text-start"
             >
                 <span className="font-normal">{selected.title}</span>
             </MenuButton>

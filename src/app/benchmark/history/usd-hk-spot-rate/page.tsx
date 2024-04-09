@@ -1,5 +1,4 @@
 import "@/app/benchmark/marketdata/index.css";
-import Layout from "@/components/Global/Layout";
 import SpotRateTable from "@/components/table/SpotRateTable";
 import { NextPage } from "next";
 
@@ -27,13 +26,13 @@ const tableData = [
 ];
 const HistoryUsdHkSpotRatePage: NextPage = () => {
     return (
-        <Layout
-            title="USD/HKD Spot Rate"
-            content="Last revised: 13 Mar 2024"
-            steps={["Benchmark", "History of USD and HKD Spot Rate"]}
-        >
-            <SpotRateTable data={tableData} />
-        </Layout>
+        // <Layout
+        //     title="USD/HKD Spot Rate"
+        //     content="Last revised: 13 Mar 2024"
+        //     steps={["Benchmark", "History of USD and HKD Spot Rate"]}
+        // >
+        <SpotRateTable data={tableData} />
+        // </Layout>
     );
 };
 

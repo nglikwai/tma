@@ -1,7 +1,7 @@
 import type { Metadata, NextPage } from "next";
 
 export const metadata: Metadata = {
-    title: "Education Benchmark Statement - TMA"
+    title: "Terms and conditions for accessing this website and usage of the Rates - TMA"
 };
 
 type props = {

@@ -1,7 +1,40 @@
 "use server";
-import GovernanceLayout from "@/components/GovernanceLayout";
 import { NextPage } from "next";
 import { FC } from "react";
+
+const SpecificationsPage: NextPage = async () => {
+    return (
+        <>
+            {data.map(cur => (
+                <div className="flex flex-col gap-6">
+                    <h3 className="text-[26px]">{cur.title}</h3>
+                    <div className="grid grid-cols-3 sm:grid-cols-1 gap-x-8 gap-y-6">
+                        {cur.content.map(item => (
+                            <SpecificationCard key={item} item={item} />
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </>
+    );
+};
+
+const SpecificationCard: FC<any> = ({ item }) => {
+    return (
+        <div className="flex gap-4 group cursor-pointer items-start">
+            <img src="/images/icon-pdf.svg" alt="" />
+            <div className="flex flex-col gap-2">
+                <span className="group-hover:underline">{item.title}</span>
+
+                <a href={item.href} target="_blank" className="flex text-[#0053B0] group-hover:text-[#0078FF] gap-2">
+                    <span>Download (367KB)</span>
+                    <img src="/images/icon-link.svg" alt="download" />
+                </a>
+            </div>
+        </div>
+    );
+};
+export default SpecificationsPage;
 
 const data = [
     {
@@ -56,39 +89,3 @@ const data = [
         ]
     }
 ];
-
-const SpecificationsPage: NextPage = async () => {
-    return (
-        <GovernanceLayout>
-            <>
-                {data.map(cur => (
-                    <div className="flex flex-col gap-6">
-                        <h3 className="text-[26px]">{cur.title}</h3>
-                        <div className="grid grid-cols-3 sm:grid-cols-1 gap-x-8 gap-y-6">
-                            {cur.content.map(item => (
-                                <SpecificationCard key={item} item={item} />
-                            ))}
-                        </div>
-                    </div>
-                ))}
-            </>
-        </GovernanceLayout>
-    );
-};
-
-const SpecificationCard: FC<any> = ({ item }) => {
-    return (
-        <div className="flex gap-4 group cursor-pointer items-start">
-            <img src="/images/icon-pdf.svg" alt="" />
-            <div className="flex flex-col gap-2">
-                <span className="group-hover:underline">{item.title}</span>
-
-                <a href={item.href} target="_blank" className="flex text-[#0053B0] group-hover:text-[#0078FF] gap-2">
-                    <span>Download (367KB)</span>
-                    <img src="/images/icon-link.svg" alt="download" />
-                </a>
-            </div>
-        </div>
-    );
-};
-export default SpecificationsPage;

@@ -1,7 +1,7 @@
 import type { Metadata, NextPage } from "next";
 
 export const metadata: Metadata = {
-    title: "HKD Overnight Index Average (HONIA)"
+    title: "HKD Overnight Index Average (HONIA) - TMA"
 };
 
 type props = {

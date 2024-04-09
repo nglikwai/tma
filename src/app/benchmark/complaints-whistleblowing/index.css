@@ -1,21 +1,24 @@
 .complaint-form form {
     @apply flex flex-col gap-6 sm:items-start;
 }
+.complaint-form .option {
+    @apply flex sm:flex-col gap-4 items-center;
+}
 .complaint-form legend,
-.complaint-form label span {
+.complaint-form form > label > span {
     @apply text-[#666666] !w-[150px];
 }
 
-.complaint-form fieldset div {
-    @apply flex gap-4;
+.complaint-form fieldset > div {
+    @apply flex gap-4 sm:flex-col;
 }
 
 .complaint-form fieldset label {
-    @apply flex gap-2;
+    @apply flex gap-2 sm:w-full items-center;
 }
 
-.complaint-form label {
-    @apply flex gap-4 items-center sm:flex-col sm:items-start sm:w-[90%];
+.complaint-form form > label {
+    @apply flex gap-4 items-center sm:flex-col sm:flex sm:items-stretch w-full;
     color: #000000d9;
 }
 

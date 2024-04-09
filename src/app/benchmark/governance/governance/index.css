@@ -1,7 +1,7 @@
 .governance-table table {
+    @apply table-fixed sm:table-auto;
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed;
 }
 
 .governance-table tbody tr td {
@@ -15,7 +15,7 @@
     @apply text-[#0053B0];
 }
 .governance-table tbody tr td:first-child {
-    width: 150px;
+    @apply w-[150px] sm:w-auto;
 }
 
 .governance-table tbody {

@@ -1,6 +1,7 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
+import { SCREEN_SIZE } from "screen";
 import { ListStyle } from "../LinkList";
 import "./index.css";
 
@@ -13,8 +14,8 @@ const BenchmarkMenu: FC<props> = ({ menu, style, id }) => {
     const pathname = usePathname();
 
     const [checked, setChecked] = useState(menu.findIndex(item => pathname.includes(item.id)));
+    const [screenWidth, setScreenWidth] = useState(1000);
 
-    console.log("checked", pathname);
     const router = useRouter();
     const ulRef = useRef<HTMLUListElement>(null);
 
@@ -22,13 +23,27 @@ const BenchmarkMenu: FC<props> = ({ menu, style, id }) => {
         setChecked(index);
     };
 
-    const translateDistance = menu.slice(0, checked).reduce((a, b: any) => a + b.length + 32, 0);
+    const translateDistance =
+        screenWidth < SCREEN_SIZE.sm
+            ? `${100 * checked}%`
+            : `${menu.slice(0, checked).reduce((a, b: any) => a + b.length + 32, 0)}px`;
 
     const handleRouteChange = (href: string) => () => {
-        setTimeout(() => {
-            router.push(href);
-        }, 100);
+        router.push(href);
     };
+
+    useEffect(() => {
+        setScreenWidth(window.innerWidth);
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            document.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     return (
         <div className="tabs inline-block">
             {menu?.map((item, index) => (
@@ -42,7 +57,7 @@ const BenchmarkMenu: FC<props> = ({ menu, style, id }) => {
                 />
             ))}
 
-            <ul ref={ulRef} className="gap-8">
+            <ul ref={ulRef} className="">
                 {menu?.map((item, index) => (
                     <li key={item.id}>
                         <label
@@ -59,10 +74,10 @@ const BenchmarkMenu: FC<props> = ({ menu, style, id }) => {
                 ))}
             </ul>
             <div
-                className="slider"
+                className="slider sm:!w-1/3"
                 style={{
                     width: menu[checked]?.length,
-                    transform: `translateX(${translateDistance}px)`
+                    transform: `translateX(${translateDistance})`
                 }}
             >
                 <div className="indicator" style={{ background: style?.activeColor || "#FFF" }}></div>
