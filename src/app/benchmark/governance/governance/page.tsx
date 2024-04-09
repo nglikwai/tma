@@ -7,6 +7,7 @@ export type GovernanceComponentType = {
     type: string;
     title?: string;
     href?: string;
+    internal?: boolean;
     content?: any[];
     header?: string;
     maxCol?: number;
@@ -150,7 +151,8 @@ const data: GovernanceData[] = [
             {
                 type: "link",
                 title: "Independent Assurance Review by external auditor (2022)",
-                href: "https://www.tma.org.hk/en_auditRpt_disclaimer.aspx"
+                href: "/disclaimer/audit-report",
+                internal: true
             }
         ]
     },
@@ -199,18 +201,14 @@ const data: GovernanceData[] = [
             },
             {
                 type: "link",
-                title: "Contacts at TMA",
-                href: "/benchmark/complaints-whistleblowing"
-            },
-            {
-                type: "link",
                 title: "Complaints Policy",
                 href: "https://www.tma.org.hk/FixingsFile/Complaints_policy.pdf?275"
             },
             {
                 type: "link",
                 title: "Contacts at TMA",
-                href: "/benchmark/complaints-whistleblowing"
+                href: "/benchmark/complaints-whistleblowing",
+                internal: true
             }
         ]
     },

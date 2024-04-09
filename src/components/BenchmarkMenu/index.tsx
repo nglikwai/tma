@@ -1,7 +1,6 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
 import { FC, useEffect, useRef, useState } from "react";
-import { SCREEN_SIZE } from "screen";
 import { ListStyle } from "../LinkList";
 import "./index.css";
 
@@ -23,11 +22,12 @@ const BenchmarkMenu: FC<props> = ({ menu, style, id }) => {
         setChecked(index);
     };
 
-    const translateDistance =
-        screenWidth < SCREEN_SIZE.sm
-            ? `${100 * checked}%`
-            : `${menu.slice(0, checked).reduce((a, b: any) => a + b.length + 32, 0)}px`;
+    // const translateDistance =
+    //     screenWidth < SCREEN_SIZE.sm
+    //         ? `${100 * checked}%`
+    //         : `${menu.slice(0, checked).reduce((a, b: any) => a + b.length + 32, 0)}px`;
 
+    const translateDistance = `${menu.slice(0, checked).reduce((a, b: any) => a + b.length + 32, 0)}px`;
     const handleRouteChange = (href: string) => () => {
         router.push(href);
     };
@@ -45,42 +45,47 @@ const BenchmarkMenu: FC<props> = ({ menu, style, id }) => {
     }, []);
 
     return (
-        <div className="tabs inline-block">
-            {menu?.map((item, index) => (
-                <input
-                    type="radio"
-                    id={`tab${id}${index + 1}`}
-                    name="tab-control"
-                    onChange={e => handleChecked(e, index)}
-                    key={item.id}
-                    checked={index === checked}
-                />
-            ))}
-
-            <ul ref={ulRef} className="">
+        <div className="sm:max-w-[100vw] sm:overflow-x-scroll">
+            <div className="tabs inline-block">
                 {menu?.map((item, index) => (
-                    <li key={item.id}>
-                        <label
-                            htmlFor={`tab${id}${index + 1}`}
-                            role="button"
-                            style={{
-                                color: index === checked ? style?.activeColor || "#fff" : style?.inactiveColor || "#1890FF"
-                            }}
-                            onClick={handleRouteChange(item.href)}
-                        >
-                            <span className={`${style?.hoverColor ? style.hoverColor : "hover:text-[#62B4FF]"}`}>{item.key}</span>
-                        </label>
-                    </li>
+                    <input
+                        type="radio"
+                        id={`tab${id}${index + 1}`}
+                        name="tab-control"
+                        onChange={e => handleChecked(e, index)}
+                        key={item.id}
+                        checked={index === checked}
+                    />
                 ))}
-            </ul>
-            <div
-                className="slider sm:!w-1/3"
-                style={{
-                    width: menu[checked]?.length,
-                    transform: `translateX(${translateDistance})`
-                }}
-            >
-                <div className="indicator" style={{ background: style?.activeColor || "#FFF" }}></div>
+
+                <ul ref={ulRef} className="">
+                    {menu?.map((item, index) => (
+                        <li key={item.id}>
+                            <label
+                                htmlFor={`tab${id}${index + 1}`}
+                                role="button"
+                                style={{
+                                    color: index === checked ? style?.activeColor || "#fff" : style?.inactiveColor || "#1890FF"
+                                }}
+                                onClick={handleRouteChange(item.href)}
+                            >
+                                <span className={`${style?.hoverColor ? style.hoverColor : "hover:text-[#62B4FF]"}`}>
+                                    {item.key}
+                                </span>
+                            </label>
+                        </li>
+                    ))}
+                </ul>
+                <div
+                    // className="slider sm:!w-1/3"
+                    className="slider"
+                    style={{
+                        width: menu[checked]?.length,
+                        transform: `translateX(${translateDistance})`
+                    }}
+                >
+                    <div className="indicator" style={{ background: style?.activeColor || "#FFF" }}></div>
+                </div>
             </div>
         </div>
     );

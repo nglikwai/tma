@@ -9,7 +9,7 @@ const HistoryUsdCnySpotRatePage: NextPage = () => {
         //     content="Last revised: 13 Mar 2024"
         //     steps={["Benchmark", "History of USD/CNY(HK) Spot Rate"]}
         // >
-        <SpotRateTable data={tableData} />
+        <SpotRateTable data={tableData} title="USD/CNY(HK) Spot Rate" />
         // </Layout>
     );
 };

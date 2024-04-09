@@ -35,7 +35,7 @@ const IndexTable: FC<any> = ({ item }) => {
                     </tbody>
                     <thead>
                         <tr>
-                            <th>average</th>
+                            <th>AVERAGE</th>
                             <th>Index</th>
                         </tr>
                     </thead>

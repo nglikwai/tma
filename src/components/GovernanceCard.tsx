@@ -25,7 +25,7 @@ export default GovernanceCard;
 const ComponentCard: FC<{ component: GovernanceComponentType }> = ({ component }) => {
     if (component.type === "link") {
         return (
-            <a className="text-[#0053B0]" href={component.href} target="_blank">
+            <a className="text-[#0053B0]" href={component.href} target={component.internal ? "_blank" : "_blank"}>
                 <span className="mr-1">➜</span>
                 <span>{component.title}</span>
             </a>

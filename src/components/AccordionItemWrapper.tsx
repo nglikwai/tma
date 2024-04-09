@@ -19,8 +19,7 @@ const AccordionItemWrapper: FC<props> = ({ children, title, rememberIndex }) => 
                 <>
                     <div
                         onClick={handleOnClick}
-                        className={`bg-[#0053B0] h-[59px] sm:h-auto px-4 sm:px-0 font-[700] flex items-center text-white transition hover:!bg-[${isExpanded ? "0053B0" : "#E6F3FF"}]`}
-                        style={{ color: isExpanded ? "#fff" : "#212121", background: isExpanded ? "#0053B0" : "transparent" }}
+                        className={`bg-[#0053B0] h-[59px] sm:h-auto px-4 sm:px-0 font-[700] flex items-center text-white transition ${isExpanded ? "accordion-active" : "accordion-inactive"}`}
                     >
                         <div className="w-full">
                             <AccordionButton className="hover:!bg-transparent">

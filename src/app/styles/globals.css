@@ -79,3 +79,17 @@ input[type="checkbox"]:checked {
     position: absolute;
     top: 326px;
 }
+
+.accordion-inactive:hover {
+    background-color: #e6f3ff;
+}
+
+.accordion-inactive {
+    color: #212121;
+    background-color: transparent;
+}
+
+.accordion-active {
+    background-color: #0053b0;
+    color: #fff;
+}

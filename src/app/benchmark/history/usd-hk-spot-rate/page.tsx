@@ -31,7 +31,7 @@ const HistoryUsdHkSpotRatePage: NextPage = () => {
         //     content="Last revised: 13 Mar 2024"
         //     steps={["Benchmark", "History of USD and HKD Spot Rate"]}
         // >
-        <SpotRateTable data={tableData} />
+        <SpotRateTable data={tableData} title="USD/HKD Spot Rate" />
         // </Layout>
     );
 };

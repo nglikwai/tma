@@ -3,13 +3,14 @@
 }
 .tabs .content section h2,
 .tabs ul {
-    @apply flex sm:grid grid-cols-3 gap-8 sm:gap-3;
+    /* @apply flex sm:grid grid-cols-3 gap-8 sm:gap-3; */
+    @apply flex grid-cols-3 gap-8;
     list-style-type: none;
     flex-direction: row;
     padding: 16px 0;
 }
 .tabs ul li {
-    @apply sm:text-center sm:flex sm:justify-center sm:items-center;
+    /* @apply sm:text-center sm:flex sm:justify-center sm:items-center; */
     box-sizing: border-box;
 }
 .tabs ul li label {
@@ -24,7 +25,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    text-wrap: wrap;
+    /* text-wrap: wrap; */
 }
 
 .tabs .slider {
