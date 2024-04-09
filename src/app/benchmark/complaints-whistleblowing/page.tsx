@@ -50,16 +50,16 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                 </fieldset>
 
                 <label htmlFor="family-name">
-                    <span className="title"> Family Name</span> <input type="text" id="family-name" name="familyName" required />
+                    <span className="title"> Family Name</span> <input type="text" id="family-name" name="familyName" />
                 </label>
 
                 <label htmlFor="given-name">
-                    <span className="title">Given Name</span> <input type="text" id="given-name" name="givenName" required />
+                    <span className="title">Given Name</span> <input type="text" id="given-name" name="givenName" />
                 </label>
 
                 <label htmlFor="contact-number">
                     <span>Contact Number</span>
-                    <input type="tel" id="contact-number" name="contactNumber" required />
+                    <input type="tel" id="contact-number" name="contactNumber" />
                 </label>
 
                 <label htmlFor="email">
