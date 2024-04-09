@@ -2,7 +2,7 @@
     @apply flex flex-col gap-6 sm:items-start;
 }
 .complaint-form .option {
-    @apply flex sm:flex-col gap-4 items-center;
+    @apply flex sm:flex-col gap-4 items-center text-[#000000D9];
 }
 .complaint-form legend,
 .complaint-form form > label > span {

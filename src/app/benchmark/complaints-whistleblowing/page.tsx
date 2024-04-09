@@ -1,5 +1,6 @@
 "use server";
 import { NextPage } from "next";
+import ClientTextarea from "./ClientTextarea";
 import "./index.css";
 
 const ComplaintsAndWhistleblowingPage: NextPage = async () => {
@@ -72,14 +73,7 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                     <span>
                         Message<i className="text-[#EF383F]">*</i>
                     </span>
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows={5}
-                        required
-                        maxLength={1000}
-                        className="!h-[76px] !py-[5px] !px-3"
-                    ></textarea>
+                    <ClientTextarea />
                 </label>
 
                 <fieldset>
