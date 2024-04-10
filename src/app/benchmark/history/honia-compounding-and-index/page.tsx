@@ -11,8 +11,8 @@ const HistoryUsdHkSpotRatePage: React.FC = () => {
                     <table className="w-full">
                         <thead>
                             <tr>
-                                <th>DATE</th>
-                                <th>Index</th>
+                                <th>Period</th>
+                                <th>Compounding Rate</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -25,8 +25,8 @@ const HistoryUsdHkSpotRatePage: React.FC = () => {
                         </tbody>
                         <thead>
                             <tr>
-                                <th>AVERAGE</th>
-                                <th>Index</th>
+                                <th>Period</th>
+                                <th>Compounding Rate</th>
                             </tr>
                         </thead>
                         <tbody>

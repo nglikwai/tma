@@ -17,6 +17,20 @@ export type GovernanceData = {
     title: string;
     components: GovernanceComponentType[];
 };
+
+const GovernancePage: NextPage = async () => {
+    return (
+        <>
+            <Accordion defaultIndex={[0, 1, 2, 3, 4, 5, 6, 7, 8]} allowMultiple>
+                {data.map(item => (
+                    <GovernanceCard item={item} key={item.title} />
+                ))}
+            </Accordion>
+        </>
+    );
+};
+export default GovernancePage;
+
 const data: GovernanceData[] = [
     {
         title: "Surveillance and Governance Committee (SGC)",
@@ -282,16 +296,3 @@ const data: GovernanceData[] = [
         ]
     }
 ];
-
-const GovernancePage: NextPage = async () => {
-    return (
-        <>
-            <Accordion defaultIndex={0}>
-                {data.map(item => (
-                    <GovernanceCard item={item} key={item.title} />
-                ))}
-            </Accordion>
-        </>
-    );
-};
-export default GovernancePage;

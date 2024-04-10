@@ -53,7 +53,12 @@ const AppLayout: React.FC<Props> = ({ children }) => {
             title: "Benchmark",
             content: <BenchmarkMenu menu={menu} id="main" />,
             steps: ["Benchmark"],
-            subTitle: "Market Data"
+            subTitle: "Market Data",
+            notification: (
+                <div className="h-10 bg-[#E6F7FF] text-[#000000D9] text-[14px] flex items-center justify-center">
+                    US new home construction surged last month, as mortgage rates stayed high
+                </div>
+            )
         },
         "/benchmark/governance/consultation": {
             title: "Benchmark",
@@ -160,9 +165,7 @@ const AppLayout: React.FC<Props> = ({ children }) => {
     return (
         <Layout title={currentPath.title} content={currentPath.content} steps={currentPath.steps}>
             <div className="grid gap-y-6">
-                {/* <div className="h-10 bg-[#E6F7FF] text-[#000000D9] text-[14px] flex items-center justify-center">
-        US new home construction surged last month, as mortgage rates stayed high
-    </div> */}
+                {currentPath.notification && currentPath.notification}
                 <h2>{currentPath.subTitle}</h2>
                 {currentPath.subMenu && currentPath.subMenu}
                 {children}

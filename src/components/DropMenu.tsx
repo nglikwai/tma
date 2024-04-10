@@ -1,13 +1,33 @@
 "use client";
 import { Button } from "@chakra-ui/button";
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
-import { FC, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { FC, useEffect, useState } from "react";
 
+type MenuOption = {
+    key: string;
+    title: string;
+};
 type props = {
-    menu: { key: string; title: string }[];
+    menu: MenuOption[];
 };
 const DropMenu: FC<props> = ({ menu }) => {
     const [selected, setSelected] = useState(menu[0]);
+    const router = useRouter();
+    const query = useSearchParams();
+
+    const handleSelect = (item: MenuOption) => {
+        setSelected(item);
+        router.push(`?filter=${item.key}`);
+    };
+
+    useEffect(() => {
+        const filter = query.get("filter");
+        const selectedMenu = menu.find(item => item.key === filter);
+        if (selectedMenu) {
+            setSelected(selectedMenu);
+        }
+    }, []);
     return (
         <Menu>
             <MenuButton
@@ -23,7 +43,7 @@ const DropMenu: FC<props> = ({ menu }) => {
             </MenuButton>
             <MenuList borderRadius={"2px"} boxShadow={"0px 9px 28px #0000000D"}>
                 {menu.map(item => (
-                    <MenuItem key={item.key} _hover={{ bg: "#F5F5F5" }} onClick={() => setSelected(item)}>
+                    <MenuItem value={item.key} key={item.key} _hover={{ bg: "#F5F5F5" }} onClick={() => handleSelect(item)}>
                         {item.title}
                     </MenuItem>
                 ))}

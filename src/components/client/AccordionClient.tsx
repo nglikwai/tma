@@ -9,8 +9,20 @@ type props = {
 
 const AccordionClient: FC<props> = ({ children }) => {
     const query = useSearchParams();
+
+    const getIndex = () => {
+        switch (query.get("index")) {
+            case "Renminbi":
+                return 1;
+            case "Hong Kong Dollar":
+                return 0;
+            default:
+                return [0, 1];
+        }
+    };
     return (
-        <Accordion allowToggle defaultIndex={query.get("index") === "Renminbi" ? 1 : 0}>
+        // <Accordion allowToggle allowMultiple defaultIndex={query.get("index") === "Renminbi" ? 1 : 0}>
+        <Accordion allowToggle allowMultiple defaultIndex={getIndex()}>
             {children}
         </Accordion>
     );

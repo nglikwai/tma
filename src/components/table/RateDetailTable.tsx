@@ -13,7 +13,7 @@ const RateDetailTable: FC<props> = ({ data, title }) => {
                     <table className="w-full">
                         <thead>
                             <tr>
-                                <th>Title</th>
+                                <th>Date</th>
                                 {data.map((item: any) => (
                                     <th key={item.date}>{item.date}</th>
                                 ))}
