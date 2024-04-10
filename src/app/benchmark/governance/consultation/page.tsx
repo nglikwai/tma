@@ -1,27 +1,34 @@
-"use server";
+// "use server";
 import ConsultationCard from "@/components/ConsultationCard";
 import DropMenu from "@/components/DropMenu";
 import { consultationStatus } from "@/type/consultation";
 import { NextPage } from "next";
+import { Suspense } from "react";
 
-const ConsultationPage: NextPage = async () => {
+type props = {
+    searchParams: any;
+};
+
+const ConsultationPage: NextPage<props> = async ({ searchParams }) => {
     return (
         <>
             <div className="flex justify-between items-center">
                 <h1 className="font-[700] text-[26px] leading-[39px]">Consultation and Survey</h1>
-                <DropMenu
-                    menu={[
-                        { key: "all", title: "All" },
-                        {
-                            key: "progress",
-                            title: "Progress"
-                        },
-                        {
-                            key: "closed",
-                            title: "Closed"
-                        }
-                    ]}
-                />
+                <Suspense>
+                    <DropMenu
+                        menu={[
+                            { key: "all", title: "All" },
+                            {
+                                key: "progress",
+                                title: "Progress"
+                            },
+                            {
+                                key: "closed",
+                                title: "Closed"
+                            }
+                        ]}
+                    />
+                </Suspense>
             </div>
             <div className="[&>div]:border-b-[#D9D9D9] [&>div]:border-b ">
                 {[
@@ -30,9 +37,16 @@ const ConsultationPage: NextPage = async () => {
                     consultationStatus.closed,
                     consultationStatus.progress,
                     consultationStatus.closed
-                ].map(item => (
-                    <ConsultationCard key={item} status={item} />
-                ))}
+                ]
+                    .filter(i => {
+                        if (searchParams.filter === "all" || !searchParams.filter) {
+                            return true;
+                        }
+                        return i.toLowerCase() === searchParams.filter;
+                    })
+                    .map(item => (
+                        <ConsultationCard key={item} status={item} />
+                    ))}
             </div>
             <button className="text-[#0053B0] bg-[#F3F8FF] py-2">READ MORE</button>
             <p>

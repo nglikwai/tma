@@ -9,7 +9,6 @@ type Props = {
 const AppLayout: React.FC<Props> = ({ children }) => {
     const pathname = usePathname();
 
-    console.log("pathname", pathname);
     const menu = [
         {
             key: "Market Data",

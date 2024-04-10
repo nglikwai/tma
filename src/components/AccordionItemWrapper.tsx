@@ -10,7 +10,8 @@ type props = {
 };
 const AccordionItemWrapper: FC<props> = ({ children, title, rememberIndex }) => {
     const router = useRouter();
-    const handleOnClick = () => {
+    const handleOnClick = (isExpanded: boolean) => {
+        if (isExpanded) return;
         rememberIndex && router.push(`?index=${title}`);
     };
     return (
@@ -18,7 +19,7 @@ const AccordionItemWrapper: FC<props> = ({ children, title, rememberIndex }) => 
             {({ isExpanded }) => (
                 <>
                     <div
-                        onClick={handleOnClick}
+                        onClick={() => handleOnClick(isExpanded)}
                         className={`bg-[#0053B0] h-[59px] sm:h-auto px-4 sm:px-0 font-[700] flex items-center text-white transition ${isExpanded ? "accordion-active" : "accordion-inactive"}`}
                     >
                         <div className="w-full">

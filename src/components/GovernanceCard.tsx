@@ -35,7 +35,9 @@ const ComponentCard: FC<{ component: GovernanceComponentType }> = ({ component }
         return (
             <div className="flex flex-col gap-2">
                 <h3>{component.title}</h3>
-                <ul className="flex flex-col gap-2">{component.content?.map((item: string) => <li key={item}>{item}</li>)}</ul>
+                <ul className="flex flex-col gap-2">
+                    {component.content?.map((item: string, index: number) => <li key={item + index}>{item}</li>)}
+                </ul>
             </div>
         );
     }
