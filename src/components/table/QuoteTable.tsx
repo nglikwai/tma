@@ -20,7 +20,7 @@ const QuoteTable: FC<props> = ({ data, title }) => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>PDF</td>
+                            <td>Quotes</td>
                             {data.map((item: any) => (
                                 <td key={item.date}>
                                     <a className="link" href="https://www.tma.org.hk/RMBFile/20231114_TMA_RMB_Bond_Indicative_Quotes.xls">
