@@ -9,10 +9,12 @@ type props = {
     params: any;
 };
 const MarketDataPage: NextPage<props> = async ({ searchParams, params }) => {
-    console.log(params);
+    const _apiData = await fetch(process.env.NEXT_PUBLIC_BASE_API_URL + "/api/web/mkt-data/get-latest-data");
+    const apiData = await _apiData.json();
+
     return (
         <AccordionClient searchParams={searchParams}>
-            {data.map((item: any) => (
+            {data(apiData).map((item: any) => (
                 <DollarMarketData key={item} item={item} />
             ))}
         </AccordionClient>

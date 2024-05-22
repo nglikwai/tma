@@ -1,7 +1,7 @@
 // "use server";
 import ConsultationCard from "@/components/ConsultationCard";
 import DropMenu from "@/components/DropMenu";
-import { consultationStatus } from "@/type/consultation";
+import { consultationStatus } from "@/type/consultation.type";
 import { NextPage } from "next";
 import { Suspense } from "react";
 

@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { FC } from "react";
 import ImportantNote from "../ImportantNote";
 import HsitoryLink from "./HistoryLink";
@@ -8,6 +9,10 @@ export type IndexTableType = {
     data: {
         date: { date: string; index: string }[];
         average: { day: number; backward: string; index: string }[];
+        honia: {
+            honiaIndex: string;
+            honiaDate: string;
+        };
     };
     importantNotice: React.ReactNode;
     href: string;
@@ -52,8 +57,8 @@ const IndexTable: FC<any> = ({ item }) => {
                     </tbody>
                     <thead>
                         <tr>
-                            <th>HONIA Index (Since 5 Apr 2016)</th>
-                            <th>1.07705805</th>
+                            <th>HONIA Index (Since {moment(item.data.honia.honiaDate).format("D MMM YYYY")})</th>
+                            <th>{item.data.honia.honiaIndex}</th>
                         </tr>
                     </thead>
                     <tbody>

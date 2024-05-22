@@ -1,4 +1,4 @@
-import { consultationStatus } from "@/type/consultation";
+import { consultationStatus } from "@/type/consultation.type";
 import { FC } from "react";
 
 type props = {

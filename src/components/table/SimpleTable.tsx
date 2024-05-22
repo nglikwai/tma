@@ -7,6 +7,8 @@ export type SimpleTableType = {
     title: string;
     importantNotice: React.ReactNode;
     href: string;
+    value: string;
+    date: string;
 };
 const SimpleTable: FC<any> = ({ item }) => {
     return (
@@ -16,8 +18,8 @@ const SimpleTable: FC<any> = ({ item }) => {
                 <table>
                     <tbody>
                         <tr>
-                            <td className="!text-start">12/3/2024</td>
-                            <td className="!text-end">7.8223</td>
+                            <td className="!text-start">{item.date}</td>
+                            <td className="!text-end">{item.value}</td>
                         </tr>
                         <HsitoryLink link={item.href} />
                     </tbody>
