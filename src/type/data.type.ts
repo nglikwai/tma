@@ -72,6 +72,12 @@ export type HoniaType = {
     deletedAt: null | string;
 };
 
+type RMBBIType = {
+    dt: string;
+    excelUrl: string;
+    data: MarketDataType[];
+};
+
 export type APIMarketDataType = {
     SU: MarketDataType[];
     HO: MarketDataType[];
@@ -79,5 +85,5 @@ export type APIMarketDataType = {
     IB: MarketDataType[];
     SC: MarketDataType[];
     HONIA: HoniaType;
-    RMBBI: MarketDataType;
+    RMBBI: RMBBIType;
 };

@@ -27,7 +27,7 @@ const Layout: FC<props> = ({ children, title, content, steps }) => {
                         <h1 className="text-[36px] font-[700] pb-4">{title}</h1>
                         <div>{content}</div>
                     </div>
-                    <main className="text-[#212121] p-[60px] flex flex-col grow bg-white shadow-[4px_4px_20px_#00000040] max-container mb-20 z-[2]">
+                    <main className="text-[#212121] w-full p-[60px] flex flex-col grow bg-white shadow-[4px_4px_20px_#00000040] content-container mb-20 z-[2]">
                         {children}
                     </main>
                 </div>

@@ -1,7 +1,21 @@
 import { FC } from "react";
 
+type RateDetailTableDataType = {
+    date: string;
+    rate: {
+        ON: string;
+        "1WK": string;
+        "2WK": string;
+        "1M": string;
+        "2M": string;
+        "3M": string;
+        "6M": string;
+        "12M": string;
+    };
+};
+
 type props = {
-    data: any;
+    data: RateDetailTableDataType[];
     title: string;
 };
 const RateDetailTable: FC<props> = ({ data, title }) => {
@@ -14,7 +28,7 @@ const RateDetailTable: FC<props> = ({ data, title }) => {
                         <thead>
                             <tr>
                                 <th>Date</th>
-                                {data.map((item: any) => (
+                                {data.map((item: RateDetailTableDataType) => (
                                     <th key={item.date}>{item.date}</th>
                                 ))}
                             </tr>
@@ -23,8 +37,8 @@ const RateDetailTable: FC<props> = ({ data, title }) => {
                             {Object.keys(data[0].rate).map(key => (
                                 <tr key={key}>
                                     <td>{key}</td>
-                                    {data.map((item: any) => (
-                                        <td key={item.date}>3.70929</td>
+                                    {data.map((item: RateDetailTableDataType) => (
+                                        <td key={item.date}>{item.rate[key as keyof typeof item.rate]}</td>
                                     ))}
                                 </tr>
                             ))}

@@ -1,6 +1,7 @@
 "use server";
 import DollarMarketData from "@/components/DollarMarketData";
 import AccordionClient from "@/components/client/AccordionClient";
+import { getLatestData } from "@/service/market.service";
 import { NextPage } from "next";
 import { data } from "./data";
 
@@ -9,8 +10,7 @@ type props = {
     params: any;
 };
 const MarketDataPage: NextPage<props> = async ({ searchParams, params }) => {
-    const _apiData = await fetch(process.env.NEXT_PUBLIC_BASE_API_URL + "/api/web/mkt-data/get-latest-data");
-    const apiData = await _apiData.json();
+    const apiData = await getLatestData();
 
     return (
         <AccordionClient searchParams={searchParams}>

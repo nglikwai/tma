@@ -2,6 +2,7 @@ import { IndexTableType } from "@/components/table/IndexTable";
 import { RateTableType } from "@/components/table/RateTable";
 import { SimpleTableType } from "@/components/table/SimpleTable";
 import { APIMarketDataType, MarketDataType } from "@/type/data.type";
+import { getHONIAData } from "@/utils/formatData";
 import moment from "moment";
 
 export type marketDataType = {
@@ -23,7 +24,7 @@ export const data = (apiData: APIMarketDataType): marketDataType[] => {
                     }
                 }
             } else {
-                if ((items as MarketDataType).mktFixcode === mktFixcode) {
+                if ((items as any).mktFixcode === mktFixcode) {
                     return items;
                 }
             }
@@ -31,31 +32,14 @@ export const data = (apiData: APIMarketDataType): marketDataType[] => {
         return null;
     };
 
-    const value = (mktFixcode: string) => {
+    const value = (mktFixcode: string, decimal = 5) => {
         const item = getItemByCode(mktFixcode) as MarketDataType;
-        return parseFloat(item.mktFixvalue).toFixed(5);
+        return parseFloat(item.mktFixvalue).toFixed(decimal);
     };
 
     const date = (mktFixcode: string) => {
         const item = getItemByCode(mktFixcode) as MarketDataType;
         return moment(item.mktFixdate).format("D/M/YYYY");
-    };
-
-    const getHONIAData = () => {
-        const data = [] as any;
-        const range = ["On", "_1w", "_2w", "_1m", "_2m", "_3m", "_6m", "_12m"];
-
-        range.forEach(duration => {
-            if (apiData.HONIA[`show${duration}` as keyof typeof apiData.HONIA] === "Y") {
-                data.push({
-                    // date: "13/12/2023 to 13/3/2024",
-                    date: `${moment(apiData.HONIA[`sdate${duration}` as keyof typeof apiData.HONIA]).format("D/M/YYYY")} to ${moment(apiData.HONIA[`edate${duration}` as keyof typeof apiData.HONIA]).format("D/M/YYYY")}`,
-
-                    index: parseFloat(apiData.HONIA[`rate${duration}` as keyof typeof apiData.HONIA] as string).toFixed(5) + "%"
-                });
-            }
-        });
-        return data;
     };
 
     return [
@@ -66,7 +50,7 @@ export const data = (apiData: APIMarketDataType): marketDataType[] => {
                     type: "simple",
                     title: "USD/HKD Spot Rate",
                     href: "history/usd-hk-spot-rate",
-                    value: value("HKDFIX="),
+                    value: value("HKDFIX=", 4),
                     date: date("HKDFIX="),
                     importantNotice: (
                         <p>
@@ -119,30 +103,7 @@ export const data = (apiData: APIMarketDataType): marketDataType[] => {
                     type: "index",
                     title: "HONIA Compounding and Index",
                     href: "history/honia-compounding-and-index",
-                    data: {
-                        date: getHONIAData(),
-                        average: [
-                            {
-                                day: 30,
-                                backward: moment(apiData.HONIA.bdate_30).format("D/M/YYYY"),
-                                index: parseFloat(apiData.HONIA.rateAvg30).toFixed(5) + "%"
-                            },
-                            {
-                                day: 90,
-                                backward: moment(apiData.HONIA.bdate_90).format("D/M/YYYY"),
-                                index: parseFloat(apiData.HONIA.rateAvg90).toFixed(5) + "%"
-                            },
-                            {
-                                day: 180,
-                                backward: moment(apiData.HONIA.bdate_180).format("D/M/YYYY"),
-                                index: parseFloat(apiData.HONIA.rateAvg180).toFixed(5) + "%"
-                            }
-                        ],
-                        honia: {
-                            honiaIndex: apiData.HONIA.honiaIndex,
-                            honiaDate: apiData.HONIA.honiaDate
-                        }
-                    },
+                    data: getHONIAData(apiData.HONIA),
                     importantNotice: (
                         <div className="flex flex-col gap-2">
                             <p>
@@ -171,7 +132,7 @@ export const data = (apiData: APIMarketDataType): marketDataType[] => {
                     type: "simple",
                     title: "USD/CNY(HK) Spot Rate",
                     href: `history/usd-cny-spot-rate`,
-                    value: value("CNHFIX="),
+                    value: value("CNHFIX=", 4),
                     date: date("CNHFIX="),
                     importantNotice: (
                         <p>
@@ -195,7 +156,7 @@ export const data = (apiData: APIMarketDataType): marketDataType[] => {
                     title: "RMB Bond Indicative Quotes",
                     href: "/disclaimer/rmb",
                     value: "",
-                    date: "to be updated",
+                    date: moment(apiData.RMBBI.dt).format("D/M/YYYY"),
                     importantNotice: <p>Only Indicative Quotes Published at 11:00am will be posted.</p>
                 },
                 {

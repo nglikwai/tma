@@ -1,7 +1,7 @@
-import moment from "moment";
 import React, { FC } from "react";
 import ImportantNote from "../ImportantNote";
 import HsitoryLink from "./HistoryLink";
+import IndexTableUnit from "./IndexTableUnit";
 
 export type IndexTableType = {
     type?: string;
@@ -14,58 +14,21 @@ export type IndexTableType = {
             honiaDate: string;
         };
     };
-    importantNotice: React.ReactNode;
-    href: string;
+    importantNotice?: React.ReactNode;
+    href?: string;
 };
 
-const IndexTable: FC<any> = ({ item }) => {
+const IndexTable: FC<{ item: IndexTableType | any }> = ({ item }) => {
     return (
         <div key={item.title} className="flex flex-col items-start">
-            <div className="w-full bg-[#F8F8F8] px-4 market-table">
-                <h3 className="market-table-title">{item.title}</h3>
-                <table className="w-full">
-                    <thead>
-                        <tr>
-                            <th>Period</th>
-                            <th>Compounding Rate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {item.data.date.map((data: any, index: number) => (
-                            <tr key={index}>
-                                <td>{data.date}</td>
-                                <td>{data.index}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                    <thead>
-                        <tr>
-                            <th>Period</th>
-                            <th>Compounding Rate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {item.data.average.map((data: any, index: number) => (
-                            <tr key={index}>
-                                <td>
-                                    <span>{data.day} day </span>
-                                    <span className="text-[12px]">(backward to {data.backward})</span>
-                                </td>
-                                <td>{data.index}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                    <thead>
-                        <tr>
-                            <th>HONIA Index (Since {moment(item.data.honia.honiaDate).format("D MMM YYYY")})</th>
-                            <th>{item.data.honia.honiaIndex}</th>
-                        </tr>
-                    </thead>
+            <IndexTableUnit
+                item={item}
+                child={
                     <tbody>
                         <HsitoryLink link={item.href} />
                     </tbody>
-                </table>
-            </div>
+                }
+            />
             <ImportantNote content={item.importantNotice} />
         </div>
     );

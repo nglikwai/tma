@@ -18,7 +18,7 @@ const SpotRateTable: FC<any> = ({ data, title }) => {
                         <tr>
                             <td>Rate</td>
                             {data.map((item: any) => (
-                                <td key={item.date}>{item.date}</td>
+                                <td key={item.rate}>{item.rate}</td>
                             ))}
                         </tr>
                     </tbody>

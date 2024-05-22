@@ -38,6 +38,10 @@ h3 {
     @apply max-w-[1272px] w-full xl:px-2;
 }
 
+.content-container {
+    @apply max-w-[1272px] xl:px-10 lg:px-5 md:px-2;
+}
+
 .max-center {
     @apply flex flex-col items-center;
 }

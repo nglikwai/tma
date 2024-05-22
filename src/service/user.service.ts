@@ -1,7 +1,7 @@
 import axios from "axios";
-import kdpEShopClient from "./tmaClient";
+import tmaClient from "./tmaClient";
 
-// const loadUser = (): Promise<any> => kdpEShopClient.get(`/api/auth/getMemberInfo`);
+// const loadUser = (): Promise<any> => tmaClient.get(`/api/auth/getMemberInfo`);
 
 const loadUser = (): Promise<any> =>
     new Promise((resolve, reject) => {
@@ -14,7 +14,7 @@ const loadUser = (): Promise<any> =>
         });
     });
 
-const login = (passcord: any) => kdpEShopClient.post(`/api/auth/passcode`, { passcord });
+const login = (passcord: any) => tmaClient.post(`/api/auth/passcode`, { passcord });
 
 const logging = (token: string) =>
     axios.post("https://api.dse00.com/admins/token", {
