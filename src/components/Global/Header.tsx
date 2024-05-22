@@ -4,13 +4,13 @@ import StepMenu, { StepsProps } from "./StepMenu";
 const Header: FC<StepsProps> = ({ steps }) => {
     return (
         <header className="w-full flex flex-col items-center">
-            <div className="bg-[#0053B0] w-full max-center">
-                <div className="max-container h-[32px] flex justify-end items-center text-white gap-5">
-                    <span>Email: tma@tma.org.hk</span>
-                    <span>Tel: +852 2543 7668</span>
+            <div className="bg-[#133D6C] w-full max-center">
+                <div className="max-container h-[10px] flex justify-end items-center text-white gap-5">
+                    {/* <span>Email: tma@tma.org.hk</span>
+                    <span>Tel: +852 2543 7668</span> */}
                 </div>
             </div>
-            <div className="w-full bg-[#F8F8F8] max-center py-4">
+            <div className="w-full max-center py-4">
                 <div className="flex justify-between max-container">
                     <img src="/images/logo.svg" alt="logo" />
                     {/* <div className="flex items-center">
