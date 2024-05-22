@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "cp .env.dev .env && next -p 3001",
-        "build": "next build",
+        "build": "cp .env.dev .env && next build",
         "start": "next start -p 3001",
         "prod": "next build && next start -p 3001"
     },
