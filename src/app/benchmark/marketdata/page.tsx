@@ -9,7 +9,7 @@ type props = {
     searchParams: URLSearchParams;
     params: any;
 };
-const MarketDataPage: NextPage<props> = async ({ searchParams, params }) => {
+const MarketDataPage: NextPage<props> = async ({ searchParams }) => {
     const apiData = await getLatestData();
 
     return (

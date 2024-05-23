@@ -51,3 +51,37 @@ export const getHONIAData = (apiData: HoniaType) => ({
         honiaDate: apiData.honiaDate
     }
 });
+
+export const getRateDetailTableData = (apiData: MarketDataType[], codes: any) => {
+    const { ON, "1WK": _1WK, "2WK": _2WK, "1M": _1M, "2M": _2M, "3M": _3M, "6M": _6M, "12M": _12M } = codes;
+    const resultGroupByDate: { [key: string]: MarketDataType[] } = {};
+
+    apiData.forEach(item => {
+        if (resultGroupByDate[item.fixDateTime as keyof typeof resultGroupByDate]) {
+            resultGroupByDate[item.fixDateTime as keyof typeof resultGroupByDate].push(item);
+        } else {
+            resultGroupByDate[item.fixDateTime as keyof typeof resultGroupByDate] = [item];
+        }
+    });
+
+    const tableData = Object.keys(resultGroupByDate).map(key => ({
+        date: moment(key).format("DD-MM-YYYY"),
+        rate: (() => {
+            const value = (fixCode: string) =>
+                parseFloat(resultGroupByDate[key].find(item => item.mktFixcode === fixCode)?.mktFixvalue as string).toFixed(5);
+
+            return {
+                ON: value(ON),
+                "1WK": value(_1WK),
+                "2WK": value(_2WK),
+                "1M": value(_1M),
+                "2M": value(_2M),
+                "3M": value(_3M),
+                "6M": value(_6M),
+                "12M": value(_12M)
+            };
+        })()
+    }));
+
+    return tableData;
+};

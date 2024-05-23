@@ -87,3 +87,9 @@ export type APIMarketDataType = {
     HONIA: HoniaType;
     RMBBI: RMBBIType;
 };
+
+export type RMBMIType = {
+    dt: string;
+    excelUrl: string;
+    data: any;
+};

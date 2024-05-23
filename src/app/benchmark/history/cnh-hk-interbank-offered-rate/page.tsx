@@ -1,85 +1,28 @@
+"use server";
+
 import "@/app/benchmark/marketdata/index.css";
 import RateDetailTable from "@/components/table/RateDetailTable";
+import { getHistoryData } from "@/service/market.service";
+import { getRateDetailTableData } from "@/utils/formatData";
+import { NextPage } from "next";
 
-const HistoryUsdHkSpotRatePage: React.FC = () => {
+const HistoryCnhHkInterbankPage: NextPage = async () => {
     const title = "CNH Hong Kong Interbank Offered Rate";
-    return (
-        // <Layout
-        //     title={title}
-        //     content="Last revised: 13 Mar 2024"
-        //     steps={["Benchmark", "History of CNH Hong Kong Interbank Offered Rate"]}
-        // >
-        <RateDetailTable data={tableData} title={title} />
-        // </Layout>
-    );
+
+    const apiData = await getHistoryData("IB");
+
+    const tableData = getRateDetailTableData(apiData, {
+        ON: "HICNHONDF=",
+        "1WK": "HICNH1WDF=",
+        "2WK": "HICNH2WDF=",
+        "1M": "HICNH1MDF=",
+        "2M": "HICNH2MDF=",
+        "3M": "HICNH3MDF=",
+        "6M": "HICNH6MDF=",
+        "12M": "HICNH1YDF="
+    });
+
+    return <RateDetailTable data={tableData} title={title} />;
 };
 
-export default HistoryUsdHkSpotRatePage;
-
-const tableData = [
-    {
-        date: "03-11-2024",
-        rate: {
-            ON: 3.70929,
-            "1WK": 3.70929,
-            "2WK": 3.70929,
-            "1M": 3.70929,
-            "2M": 3.70929,
-            "3M": 3.70929,
-            "6M": 3.70929,
-            "12M": 3.70929
-        }
-    },
-    {
-        date: "03-08-2024",
-        rate: {
-            ON: 3.70929,
-            "1WK": 3.70929,
-            "2WK": 3.70929,
-            "1M": 3.70929,
-            "2M": 3.70929,
-            "3M": 3.70929,
-            "6M": 3.70929,
-            "12M": 3.70929
-        }
-    },
-    {
-        date: "03-07-2024",
-        rate: {
-            ON: 3.70929,
-            "1WK": 3.70929,
-            "2WK": 3.70929,
-            "1M": 3.70929,
-            "2M": 3.70929,
-            "3M": 3.70929,
-            "6M": 3.70929,
-            "12M": 3.70929
-        }
-    },
-    {
-        date: "03-06-2024",
-        rate: {
-            ON: 3.70929,
-            "1WK": 3.70929,
-            "2WK": 3.70929,
-            "1M": 3.70929,
-            "2M": 3.70929,
-            "3M": 3.70929,
-            "6M": 3.70929,
-            "12M": 3.70929
-        }
-    },
-    {
-        date: "03-05-2024",
-        rate: {
-            ON: 3.70929,
-            "1WK": 3.70929,
-            "2WK": 3.70929,
-            "1M": 3.70929,
-            "2M": 3.70929,
-            "3M": 3.70929,
-            "6M": 3.70929,
-            "12M": 3.70929
-        }
-    }
-];
+export default HistoryCnhHkInterbankPage;

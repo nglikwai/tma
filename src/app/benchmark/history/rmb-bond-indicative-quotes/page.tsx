@@ -1,36 +1,18 @@
 import "@/app/benchmark/marketdata/index.css";
 import QuoteTable from "@/components/table/QuoteTable";
+import { getHistoryData } from "@/service/market.service";
+import { RMBMIType } from "@/type/data.type";
+import moment from "moment";
+import { NextPage } from "next";
 
-const RmbBondIndicativeQuotesPage: React.FC = () => {
+const RmbBondIndicativeQuotesPage: NextPage = async () => {
     const title = "RMB Bond Indicative Quotes";
-    return (
-        // <Layout title={title} content="Last revised: 13 Mar 2024" steps={["Benchmark", "History of RMB Bond Indicative Quotes"]}>
-        <QuoteTable title={title} data={tableData} />
-        // </Layout>
-    );
+    const data = await getHistoryData<RMBMIType>("RMBBI");
+    const tableData = data.map(item => ({
+        date: moment(item.dt).format("DD-MM-YYYY"),
+        href: item.excelUrl
+    }));
+    return <QuoteTable title={title} data={tableData} />;
 };
 
 export default RmbBondIndicativeQuotesPage;
-
-const tableData = [
-    {
-        date: "03-11-2024",
-        href: "https://www.tma.org.hk/RMBFile/20231114_TMA_RMB_Bond_Indicative_Quotes.xls"
-    },
-    {
-        date: "03-08-2024",
-        href: "https://www.tma.org.hk/RMBFile/20231114_TMA_RMB_Bond_Indicative_Quotes.xls"
-    },
-    {
-        date: "03-07-2024",
-        href: "https://www.tma.org.hk/RMBFile/20231114_TMA_RMB_Bond_Indicative_Quotes.xls"
-    },
-    {
-        date: "03-06-2024",
-        href: "https://www.tma.org.hk/RMBFile/20231114_TMA_RMB_Bond_Indicative_Quotes.xls"
-    },
-    {
-        date: "03-05-2024",
-        href: "https://www.tma.org.hk/RMBFile/20231114_TMA_RMB_Bond_Indicative_Quotes.xls"
-    }
-];
