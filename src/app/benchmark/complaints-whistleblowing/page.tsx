@@ -1,12 +1,30 @@
 "use server";
+import { sumbitComplaint } from "@/service/complaint.service";
 import { NextPage } from "next";
 import ClientTextarea from "./ClientTextarea";
 import "./index.css";
 
 const ComplaintsAndWhistleblowingPage: NextPage = async () => {
+    const submitForm = async (formData: FormData) => {
+        "use server";
+
+        const data = {
+            messageType: formData.get("messageType"),
+            recipient: formData.get("recipient"),
+            lastName: formData.get("lastName"),
+            firstName: formData.get("firstName"),
+            contactNumber: formData.get("contactNumber"),
+            email: formData.get("email"),
+            message: formData.get("message"),
+            captcha: formData.get("captcha")
+        };
+
+        sumbitComplaint(data);
+    };
+
     return (
         <div className="px-4 py-8 complaint-form">
-            <form action="" className="text-[#666666]">
+            <form action={submitForm} className="text-[#666666]">
                 <fieldset className="w-full">
                     <div className="w-full">
                         <legend>
@@ -14,11 +32,11 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                         </legend>
                         <div className="option">
                             <label htmlFor="complaints">
-                                <input type="radio" id="complaints" name="reportType" value="Complaints" required />
+                                <input type="radio" id="complaints" name="messageType" value="Complaints" required />
                                 Complaints
                             </label>
                             <label htmlFor="whistleblowing">
-                                <input type="radio" id="whistleblowing" name="reportType" value="Whistleblowing" required />
+                                <input type="radio" id="whistleblowing" name="messageType" value="Whistleblowing" required />
                                 Whistleblowing
                             </label>
                         </div>
@@ -50,11 +68,11 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                 </fieldset>
 
                 <label htmlFor="family-name">
-                    <span className="title"> Family Name</span> <input type="text" id="family-name" name="familyName" />
+                    <span className="title"> Family Name</span> <input type="text" id="family-name" name="lastName" />
                 </label>
 
                 <label htmlFor="given-name">
-                    <span className="title">Given Name</span> <input type="text" id="given-name" name="givenName" />
+                    <span className="title">Given Name</span> <input type="text" id="given-name" name="firstName" />
                 </label>
 
                 <label htmlFor="contact-number">
@@ -97,7 +115,7 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                                 </div>
                                 <div className="flex gap-[19px]">
                                     <img src="/images/icon-verified.svg" alt="" />
-                                    <input type="text" className="h-[54px] !py-0 !px-4" />
+                                    <input type="text" name="captcha" className="h-[54px] !py-0 !px-4" />
                                 </div>
                             </div>
                         </label>

@@ -4,10 +4,11 @@ import { getHistoryData } from "@/service/market.service";
 import { getRateDetailTableData } from "@/utils/formatData";
 import { FC } from "react";
 
-const HistoryUsdHkSpotRatePage: FC = async () => {
+const HistoryHkdInterestRatePage: FC = async () => {
     const title = "HKD Interest Settlement Rates";
 
     const apiData = await getHistoryData("HH");
+
     const tableData = getRateDetailTableData(apiData, {
         ON: "HIHKDOND=",
         "1WK": "HIHKD1WD=",
@@ -22,4 +23,4 @@ const HistoryUsdHkSpotRatePage: FC = async () => {
     return <RateDetailTable data={tableData} title={title} />;
 };
 
-export default HistoryUsdHkSpotRatePage;
+export default HistoryHkdInterestRatePage;

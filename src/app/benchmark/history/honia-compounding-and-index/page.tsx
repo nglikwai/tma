@@ -1,6 +1,7 @@
 import "@/app/benchmark/marketdata/index.css";
 import IndexTableUnit from "@/components/table/IndexTableUnit";
 import { getHistoryData } from "@/service/market.service";
+import { DATE_FORMAT } from "@/settings";
 import { HoniaType } from "@/type/data.type";
 import { getHONIAData } from "@/utils/formatData";
 import moment from "moment";
@@ -10,7 +11,7 @@ const HistoryUsdHkSpotRatePage: FC = async () => {
     const apiData = await getHistoryData<HoniaType>("HONIA");
 
     const table = apiData.map(item => ({
-        title: moment(item.postdate).format("DD-MM-YYYY"),
+        title: moment(item.postdate).format(DATE_FORMAT),
         data: getHONIAData(item)
     }));
 

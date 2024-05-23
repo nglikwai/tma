@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 type props = {
-    data: any;
+    data: { date: string; href: string }[];
     title: string;
 };
 const QuoteTable: FC<props> = ({ data, title }) => {
@@ -23,7 +23,7 @@ const QuoteTable: FC<props> = ({ data, title }) => {
                             <td>Quotes</td>
                             {data.map((item: any) => (
                                 <td key={item.date}>
-                                    <a className="link" href="https://www.tma.org.hk/RMBFile/20231114_TMA_RMB_Bond_Indicative_Quotes.xls">
+                                    <a className="link" href={item.href}>
                                         Download
                                     </a>
                                 </td>

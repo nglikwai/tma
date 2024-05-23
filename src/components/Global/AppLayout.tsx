@@ -54,7 +54,7 @@ const AppLayout: React.FC<Props> = ({ children }) => {
             steps: ["Benchmark"],
             subTitle: "Market Data",
             notification: (
-                <div className="h-10 bg-[#E6F7FF] text-[#000000D9] text-[14px] flex items-center justify-center">
+                <div className="h-10 bg-[#E6F7FF] text-[#000000D9] text-[14px] flex items-center justify-center sm:p-2 sm:h-auto">
                     US new home construction surged last month, as mortgage rates stayed high
                 </div>
             )

@@ -24,10 +24,10 @@ const Layout: FC<props> = ({ children, title, content, steps }) => {
                         </div>
                     </div>
                     <div className="max-container py-[60px] sm:py-6 h-[219px] sm:h-auto flex flex-col justify-start z-[2]">
-                        <h1 className="text-[36px] font-[700] pb-4">{title}</h1>
+                        <h1 className="text-[36px] font-[700] pb-4 sm:text-[28px]">{title}</h1>
                         <div>{content}</div>
                     </div>
-                    <main className="text-[#212121] w-full p-[60px] flex flex-col grow bg-white shadow-[4px_4px_20px_#00000040] content-container mb-20 z-[2]">
+                    <main className="text-[#212121] w-full p-[60px] flex flex-col grow bg-white shadow-[4px_4px_20px_#00000040] content-container mb-20 z-[2] sm:px-2">
                         {children}
                     </main>
                 </div>

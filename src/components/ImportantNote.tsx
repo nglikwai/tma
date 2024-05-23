@@ -7,14 +7,14 @@ type props = {
 };
 const ImportantNote: FC<props> = ({ content }) => {
     return (
-        <Popover arrowSize={10}>
+        <Popover arrowSize={10} placement="bottom-start">
             <PopoverTrigger>
                 <div className="flex items-center gap-2 py-2">
                     <img src="/images/icon-important.svg" alt="" />
                     <button className="important-note">Important notice</button>
                 </div>
             </PopoverTrigger>
-            <PopoverContent width={485} padding={4}>
+            <PopoverContent width={485} padding={4} boxShadow={'0 4px 20px #00000026'}>
                 <PopoverArrow />
                 <PopoverBody padding={0} fontSize={14}>
                     {content}
