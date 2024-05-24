@@ -23,7 +23,7 @@ const DollarMarketData: FC<props> = ({ item }) => {
     };
     return (
         <AccordionItemWrapper title={item.title} rememberIndex>
-            <AccordionPanel className="!p-4">
+            <AccordionPanel className="!p-4 sm:!px-0">
                 <div className="grid grid-cols-2 gap-6 sm:grid-cols-1">
                     {item.table.map(table => (
                         <div key={table.title}>{getTable(table)}</div>
