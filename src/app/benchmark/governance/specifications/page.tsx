@@ -21,17 +21,17 @@ const SpecificationsPage: NextPage = async () => {
 
 const SpecificationCard: FC<any> = ({ item }) => {
     return (
-        <div className="flex gap-4 group cursor-pointer items-start">
-            <img src="/images/icon-pdf.svg" alt="" />
+        <a href={item.href} target="_blank" className="flex gap-4 group cursor-pointer items-start">
+            <img src="/images/icon-pdf.svg" alt="icon-pdf" />
             <div className="flex flex-col gap-2">
                 <span className="group-hover:underline">{item.title}</span>
 
-                <a href={item.href} target="_blank" className="flex text-[#0053B0] group-hover:text-[#0078FF] gap-2">
+                <div className="flex text-[#0053B0] group-hover:text-[#0078FF] gap-2">
                     <span>Download (367KB)</span>
                     <img src="/images/icon-link.svg" alt="download" />
-                </a>
+                </div>
             </div>
-        </div>
+        </a>
     );
 };
 export default SpecificationsPage;
