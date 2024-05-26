@@ -2,11 +2,11 @@ import { DATE_FORMAT } from "@/settings";
 import { HoniaType, MarketDataType } from "@/type/data.type";
 import moment from "moment";
 
-export const fetchAndFormatSpotRateData = async (fetchFunction: any) => {
+export const fetchAndFormatSpotRateData = async (fetchFunction: any, digit = 4) => {
     const apiData = await fetchFunction;
     const tableData = apiData.map((item: MarketDataType) => ({
         date: moment(item.mktFixdate).format(DATE_FORMAT),
-        rate: parseFloat(item.mktFixvalue).toFixed(4)
+        rate: parseFloat(item.mktFixvalue).toFixed(digit)
     }));
     return tableData;
 };

@@ -6,7 +6,7 @@ import { NextPage } from "next";
 
 const HistoryUsdHkSpotRatePage: NextPage = async () => {
     const title = "HKD Overnight Index Average (HONIA)";
-    const tableData = await fetchAndFormatSpotRateData(getHistoryData("HO"));
+    const tableData = await fetchAndFormatSpotRateData(getHistoryData("HO"), 5);
 
     return <OvernightIndexTable title={title} data={tableData} />;
 };
