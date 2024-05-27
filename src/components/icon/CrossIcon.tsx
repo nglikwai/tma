@@ -1,17 +1,14 @@
+import { MinusIcon } from "@chakra-ui/icons";
 import { FC } from "react";
 
 type props = {
     isExpanded: boolean;
 };
 const CrossIcon: FC<props> = ({ isExpanded }) => {
-    return (
-        <svg
-            width="14"
-            height="13"
-            viewBox="0 0 14 13"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ transform: isExpanded ? "rotate(90deg)" : "rotate(405deg)", transition: "all 0.6s ease" }}
-        >
+    return isExpanded ? (
+        <MinusIcon fill={'fff'}/>
+    ) : (
+        <svg width="14" height="13" viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"

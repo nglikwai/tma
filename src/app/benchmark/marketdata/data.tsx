@@ -35,12 +35,12 @@ export const data = (apiData: APIMarketDataType): marketDataType[] => {
 
     const value = (mktFixcode: string, decimal = 5) => {
         const item = getItemByCode(mktFixcode) as MarketDataType;
-        return parseFloat(item.mktFixvalue).toFixed(decimal);
+        return item ? parseFloat(item.mktFixvalue).toFixed(decimal) : null;
     };
 
     const date = (mktFixcode: string) => {
         const item = getItemByCode(mktFixcode) as MarketDataType;
-        return moment(item.mktFixdate).format(DATE_FORMAT);
+        return item ? moment(item.mktFixdate).format(DATE_FORMAT) : null;
     };
 
     return [
@@ -112,14 +112,16 @@ export const data = (apiData: APIMarketDataType): marketDataType[] => {
                                 risk-free rate of HIBOR, the TMA decide to publish the following:
                             </p>
                             <p>
-                                1. {" "}
+                                1.{" "}
                                 <a className="text-[#0053B0]" href="https://www.hkab.org.hk/en/home" target="_blank">
                                     Standard market convention of HIBOR
                                 </a>
                                 1M, 3M and 6M with accrued HONIA;
                             </p>
                             <p>2. {"  "}Fixed 30-day, 90-day and 180-day average HONIA;</p>
-                            <p className="ml-4">2-1. Fixed-day count structure: the backward start date may fall on a weekend or public holiday</p>
+                            <p className="ml-4">
+                                2-1. Fixed-day count structure: the backward start date may fall on a weekend or public holiday
+                            </p>
                             <p>3. HONIA Index as of 5 April 2016</p>
                         </div>
                     )

@@ -7,8 +7,8 @@ export type SimpleTableType = {
     title: string;
     importantNotice: React.ReactNode;
     href: string;
-    value: string;
-    date: string;
+    value: string | null;
+    date: string | null;
 };
 const SimpleTable: FC<any> = ({ item }) => {
     return (

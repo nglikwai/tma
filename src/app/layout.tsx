@@ -3,6 +3,7 @@ import { StoreProvider } from "./StoreProvider";
 
 import AppLayout from "@/components/Global/AppLayout";
 import { ChakraProvider } from "@chakra-ui/react";
+import Script from "next/script";
 import "./styles/globals.css";
 
 interface Props {
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: Props) {
     return (
         <html lang="en">
             <body>
+                <Script src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`} />
                 <StoreProvider>
                     <ChakraProvider>
                         <AppLayout>{children}</AppLayout>

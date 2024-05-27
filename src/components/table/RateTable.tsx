@@ -7,7 +7,7 @@ export type RateTableType = {
     title: string;
     data: {
         maturity: string;
-        rate: string;
+        rate: string | null;
     }[];
 
     importantNotice?: React.ReactNode;

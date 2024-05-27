@@ -16,10 +16,14 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
             contactNumber: formData.get("contactNumber"),
             email: formData.get("email"),
             message: formData.get("message"),
-            captcha: formData.get("captcha")
+            // captcha: formData.get("captcha")
+            captcha: "32768"
         };
 
-        sumbitComplaint(data);
+        const res = await sumbitComplaint(data);
+        if (res.status === 201){
+            
+        }
     };
 
     return (
@@ -94,7 +98,7 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                     <ClientTextarea />
                 </label>
 
-                <fieldset>
+                {/* <fieldset>
                     <div>
                         <legend>
                             Verification Code<i className="text-[#EF383F]">*</i>
@@ -120,7 +124,7 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                             </div>
                         </label>
                     </div>
-                </fieldset>
+                </fieldset> */}
                 <div className="flex gap-[10px] justify-end ">
                     <button className="not-button">Cancel</button>
 
