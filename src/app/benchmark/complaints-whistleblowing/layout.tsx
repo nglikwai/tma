@@ -1,5 +1,6 @@
 import type { Metadata, NextPage } from "next";
 import Script from "next/script";
+import { Suspense } from "react";
 import ClientSideComponent from "./client/toast";
 
 export const metadata: Metadata = {
@@ -15,7 +16,9 @@ const Page: NextPage<props> = ({ children }) => {
         <>
             <Script src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`} />
             {children}
-            <ClientSideComponent />
+            <Suspense>
+                <ClientSideComponent />
+            </Suspense>
         </>
     );
 };
