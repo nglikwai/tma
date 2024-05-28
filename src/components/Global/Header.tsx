@@ -20,7 +20,8 @@ const Header: FC<StepsProps> = ({ steps }) => {
                     </div> */}
                 </div>
             </div>
-            <div className="h-[56px] flex items-center max-container border-b border-[#F0F0F0]">Home</div>
+            <div className="h-[56px] flex items-center max-container">Home</div>
+            <div className="border-b border-[#F0F0F0] w-full"></div>
             <StepMenu steps={steps} />
         </header>
     );

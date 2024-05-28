@@ -1,6 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import BenchmarkMenu from "../BenchmarkMenu";
+import Alert from "./Alert";
 import Layout from "./Layout";
 
 type Props = {
@@ -53,11 +54,7 @@ const AppLayout: React.FC<Props> = ({ children }) => {
             content: <BenchmarkMenu menu={menu} id="main" />,
             steps: ["Benchmark"],
             subTitle: "Market Data",
-            notification: (
-                <div className="h-10 bg-[#E6F7FF] text-[#000000D9] text-[14px] flex items-center justify-center sm:p-2 sm:h-auto">
-                    US new home construction surged last month, as mortgage rates stayed high
-                </div>
-            )
+            notification: <Alert conent="US new home construction surged last month, as mortgage rates stayed high" />
         },
         "/benchmark/governance/consultation": {
             title: "Benchmark",
@@ -150,6 +147,11 @@ const AppLayout: React.FC<Props> = ({ children }) => {
             content: <p>Last revised: 21 December 2022</p>,
             steps: ["Disclaimer"],
             subTitle: "Description"
+        },
+        empty: {
+            title: "",
+            content: "",
+            subTitle: ""
         }
     };
 
@@ -157,7 +159,7 @@ const AppLayout: React.FC<Props> = ({ children }) => {
         if (PATHS.hasOwnProperty(pathname)) {
             return PATHS[pathname as keyof typeof PATHS];
         } else {
-            return PATHS["/disclaimer"];
+            return PATHS.empty;
         }
     })();
 

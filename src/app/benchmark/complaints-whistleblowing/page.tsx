@@ -1,7 +1,9 @@
 "use server";
 import { sumbitComplaint } from "@/service/complaint.service";
 import { NextPage } from "next";
+import { redirect } from "next/navigation";
 import ClientTextarea from "./ClientTextarea";
+import SubmitButton from "./client/submitButton";
 import "./index.css";
 
 const ComplaintsAndWhistleblowingPage: NextPage = async () => {
@@ -20,10 +22,11 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
             captcha: "32768"
         };
 
-        const res = await sumbitComplaint(data);
-        if (res.status === 201){
-            
-        }
+        sumbitComplaint(data);
+        // if (res.status === 201) {
+        //     redirect("?submit=success");
+        // }
+        redirect("?submit=success");
     };
 
     return (
@@ -36,11 +39,11 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                         </legend>
                         <div className="option">
                             <label htmlFor="complaints">
-                                <input type="radio" id="complaints" name="messageType" value="Complaints" required />
+                                <input type="radio" id="complaints" name="messageType" value="complaints" required />
                                 Complaints
                             </label>
                             <label htmlFor="whistleblowing">
-                                <input type="radio" id="whistleblowing" name="messageType" value="Whistleblowing" required />
+                                <input type="radio" id="whistleblowing" name="messageType" value="whistleblowing" required />
                                 Whistleblowing
                             </label>
                         </div>
@@ -54,17 +57,17 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                         </legend>
                         <div className="option">
                             <label htmlFor="office">
-                                <input type="radio" id="office" name="recipient" value="TMA Office" required />
+                                <input type="radio" id="office" name="recipient" value="tma_office" required />
                                 TMA Office
                             </label>
 
                             <label htmlFor="secretariat">
-                                <input type="radio" id="secretariat" name="recipient" value="TMA Secretariat" required />
+                                <input type="radio" id="secretariat" name="recipient" value="tma_secretariat" required />
                                 TMA Secretariat
                             </label>
 
                             <label htmlFor="both">
-                                <input type="radio" id="both" name="recipient" value="Both" required />
+                                <input type="radio" id="both" name="recipient" value="all" required />
                                 Both
                             </label>
                         </div>
@@ -127,8 +130,7 @@ const ComplaintsAndWhistleblowingPage: NextPage = async () => {
                 </fieldset> */}
                 <div className="flex gap-[10px] justify-end ">
                     <button className="not-button">Cancel</button>
-
-                    <input className="ok-button" type="submit" value="Submit" />
+                    <SubmitButton />
                 </div>
             </form>
         </div>
