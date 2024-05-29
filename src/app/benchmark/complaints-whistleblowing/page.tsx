@@ -3,7 +3,7 @@ import { sumbitComplaint } from "@/service/complaint.service";
 import { NextPage } from "next";
 import { redirect } from "next/navigation";
 import ClientTextarea from "./client/ClientTextarea";
-import SubmitButton from "./client/SubmitButton";
+import SubmitButton from "./client/ClientSubmitButton";
 import "./index.css";
 
 const ComplaintsAndWhistleblowingPage: NextPage = async () => {
