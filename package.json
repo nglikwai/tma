@@ -3,6 +3,7 @@
     "scripts": {
         "dev": "cp .env.dev .env && next -p 3001",
         "build": "cp .env.dev .env && next build",
+        "build:prod": "cp .env.prod .env && next build",
         "start": "next start -p 3001",
         "prod": "next build && next start -p 3001"
     },

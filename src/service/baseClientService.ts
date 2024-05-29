@@ -16,6 +16,16 @@ export const BaseClientService = ({ baseURL, headers, withCredentials }: Props) 
         withCredentials
     });
 
+    instance.interceptors.response.use(
+        response => {
+            return response;
+        },
+        error => {
+            console.log("error", error.response.data);
+            return Promise.reject(error.response.data.message);
+        }
+    );
+
     const apis = {
         request: <T>(config: AxiosRequestConfig): Promise<T> => {
             return instance.request<T, T>(config);

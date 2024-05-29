@@ -2,8 +2,8 @@
 import { sumbitComplaint } from "@/service/complaint.service";
 import { NextPage } from "next";
 import { redirect } from "next/navigation";
-import ClientTextarea from "./ClientTextarea";
-import SubmitButton from "./client/submitButton";
+import ClientTextarea from "./client/ClientTextarea";
+import SubmitButton from "./client/SubmitButton";
 import "./index.css";
 
 const ComplaintsAndWhistleblowingPage: NextPage = async () => {

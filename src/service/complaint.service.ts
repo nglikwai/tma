@@ -15,4 +15,10 @@ const sumbitComplaint = async (formData: any): Promise<APIMarketDataType | any> 
     }
 };
 
-export { sumbitComplaint };
+const verifyEmail = async (code: string): Promise<any> => {
+    try {
+        const data = await tmaClient.get(`/api/web/complains/verify-complain-email?verificationCode=${code}`);
+        return data;
+    } catch (error) {}
+};
+export { sumbitComplaint, verifyEmail };

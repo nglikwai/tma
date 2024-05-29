@@ -1,7 +1,7 @@
 import type { Metadata, NextPage } from "next";
 import Script from "next/script";
 import { Suspense } from "react";
-import ClientSideComponent from "./client/toast";
+import ClientSideComponent from "./client/Toast";
 
 export const metadata: Metadata = {
     title: "Complaints & Whistleblowing - TMA"
